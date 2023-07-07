@@ -13,22 +13,6 @@ metadata/_edit_horizontal_guides_ = []
 [node name="Car" parent="." instance=ExtResource("1_h4w07")]
 position = Vector2(277, 452)
 
-[node name="Car2" parent="." instance=ExtResource("1_h4w07")]
-visible = false
-position = Vector2(893, 126)
-
-[node name="Car3" parent="." instance=ExtResource("1_h4w07")]
-visible = false
-position = Vector2(148, 138)
-
-[node name="Car4" parent="." instance=ExtResource("1_h4w07")]
-visible = false
-position = Vector2(458, 209)
-
-[node name="Car5" parent="." instance=ExtResource("1_h4w07")]
-visible = false
-position = Vector2(490, 423)
-
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(591, 54)
 scale = Vector2(1.2, 1)
@@ -75,3 +59,15 @@ rotation = 1.67552
 [node name="Wall_Collision" type="CollisionShape2D" parent="Wall4"]
 position = Vector2(0.999939, 0)
 shape = SubResource("RectangleShape2D_1tnxi")
+
+[node name="Car2" parent="." instance=ExtResource("1_h4w07")]
+position = Vector2(759, 458)
+
+[node name="Car3" parent="." instance=ExtResource("1_h4w07")]
+position = Vector2(697, 188)
+
+[node name="Car4" parent="." instance=ExtResource("1_h4w07")]
+position = Vector2(393, 172)
+
+[node name="Car5" parent="." instance=ExtResource("1_h4w07")]
+position = Vector2(236, 272)
