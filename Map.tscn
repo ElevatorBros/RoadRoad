@@ -1,42 +1,77 @@
-[gd_scene load_steps=3 format=3 uid="uid://4mbtxrbjrs4b"]
+[gd_scene load_steps=4 format=3 uid="uid://4mbtxrbjrs4b"]
 
 [ext_resource type="PackedScene" uid="uid://bryse20rffvq6" path="res://scenes/car/Car.tscn" id="1_h4w07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tnxi"]
-size = Vector2(325, 20)
+size = Vector2(956.724, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwbmf"]
 
 [node name="Map" type="Node2D"]
-scale = Vector2(2.27787, 2.29301)
 metadata/_edit_horizontal_guides_ = []
 
 [node name="Car" parent="." instance=ExtResource("1_h4w07")]
-position = Vector2(118, 84)
-scale = Vector2(0.93716, 0.877607)
+position = Vector2(277, 452)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Car2" parent="." instance=ExtResource("1_h4w07")]
+visible = false
+position = Vector2(893, 126)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(151, 180)
-rotation = 0.47822
+[node name="Car3" parent="." instance=ExtResource("1_h4w07")]
+visible = false
+position = Vector2(148, 138)
+
+[node name="Car4" parent="." instance=ExtResource("1_h4w07")]
+visible = false
+position = Vector2(458, 209)
+
+[node name="Car5" parent="." instance=ExtResource("1_h4w07")]
+visible = false
+position = Vector2(490, 423)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(591, 54)
+scale = Vector2(1.2, 1)
+
+[node name="Wall_Collision" type="CollisionShape2D" parent="Wall"]
+position = Vector2(0.999939, 0)
 shape = SubResource("RectangleShape2D_1tnxi")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="Wall_Center" type="StaticBody2D" parent="."]
+position = Vector2(584, 317)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(229, 63)
-rotation = 0.47822
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Center"]
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_fwbmf")
+
+[node name="Wall_Center_Long" type="StaticBody2D" parent="."]
+position = Vector2(584, 319)
+
+[node name="Wall_Collision" type="CollisionShape2D" parent="Wall_Center_Long"]
+position = Vector2(0.999939, 0)
+scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_1tnxi")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(563, 586)
+scale = Vector2(1.2, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(201, 130)
-rotation = -4.18879
+[node name="Wall_Collision" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_1tnxi")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(64, 314)
+rotation = 1.55509
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(78, 60)
-rotation = -4.18879
+[node name="Wall_Collision" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(0.999939, 0)
+shape = SubResource("RectangleShape2D_1tnxi")
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+position = Vector2(1095, 348)
+rotation = 1.67552
+
+[node name="Wall_Collision" type="CollisionShape2D" parent="Wall4"]
+position = Vector2(0.999939, 0)
 shape = SubResource("RectangleShape2D_1tnxi")
