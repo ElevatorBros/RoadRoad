@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://4mbtxrbjrs4b"]
+
+[ext_resource type="PackedScene" uid="uid://bryse20rffvq6" path="res://scenes/car/Car.tscn" id="1_h4w07"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tnxi"]
+size = Vector2(325, 20)
+
+[node name="Map" type="Node2D"]
+scale = Vector2(2.27787, 2.29301)
+metadata/_edit_horizontal_guides_ = []
+
+[node name="Car" parent="." instance=ExtResource("1_h4w07")]
+position = Vector2(118, 84)
+scale = Vector2(0.93716, 0.877607)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(151, 180)
+rotation = 0.47822
+shape = SubResource("RectangleShape2D_1tnxi")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(229, 63)
+rotation = 0.47822
+shape = SubResource("RectangleShape2D_1tnxi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(201, 130)
+rotation = -4.18879
+shape = SubResource("RectangleShape2D_1tnxi")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(78, 60)
+rotation = -4.18879
+shape = SubResource("RectangleShape2D_1tnxi")
