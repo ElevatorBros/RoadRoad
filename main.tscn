@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=18 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
 [ext_resource type="PackedScene" uid="uid://cv5ksunhhymtn" path="res://roads/straight_road.tscn" id="2_jdv0a"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d2th31hoqsxrg" path="res://Card.tscn" id="8_vsguc"]
 [ext_resource type="Script" path="res://TerrainManager.gd" id="9_3v2kd"]
 [ext_resource type="PackedScene" uid="uid://0hkprff666bu" path="res://Terrain.tscn" id="10_xgcf5"]
+[ext_resource type="PackedScene" uid="uid://d10w7fwlpsw7d" path="res://grid/Grid_Cell.tscn" id="13_w28rp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffexu"]
 size = Vector2(1262, 3776)
@@ -45,6 +46,7 @@ position = Vector2(5778, -1)
 shape = SubResource("RectangleShape2D_ffexu")
 script = ExtResource("9_3v2kd")
 terrain_scene = ExtResource("10_xgcf5")
+grid_cell = ExtResource("13_w28rp")
 
 [node name="SpawnArea" type="Area2D" parent="."]
 position = Vector2(0, -42)
