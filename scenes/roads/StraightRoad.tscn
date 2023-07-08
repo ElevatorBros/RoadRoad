@@ -15,10 +15,10 @@ texture = ExtResource("1_v0haa")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="Bottom" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1.53847, 312)
 shape = SubResource("RectangleShape2D_w4oqp")
 
-[node name="Top" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1.92308, -313.25)
 shape = SubResource("RectangleShape2D_w4oqp")
