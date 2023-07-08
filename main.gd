@@ -4,6 +4,7 @@ extends Node2D
 @export var up_road: PackedScene
 @export var down_road: PackedScene
 @export var o_road: PackedScene
+@export var y_road: PackedScene
 
 var road_mapping = []
 var current_marker_loc = Vector2(0,500)
@@ -23,6 +24,7 @@ func _ready():
 	road_mapping.append(up_road)
 	road_mapping.append(down_road)
 	road_mapping.append(o_road)
+	road_mapping.append(y_road)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -70,7 +70,6 @@ position = Vector2(87, 2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top2"]
 position = Vector2(212, 78)
 rotation = 0.296706
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tj41f")
 
 [node name="Bottom2" type="StaticBody2D" parent="."]

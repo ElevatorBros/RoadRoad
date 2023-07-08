@@ -6,7 +6,7 @@ var card_start_loc = Vector2(-1400, 700)
 
 var card_space = Vector2(1000, 0)
 
-var card_types = 4
+var card_types = 5
 
 @export var card_scene: PackedScene
 

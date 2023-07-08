@@ -23,4 +23,3 @@ func on_send_point_to_road(loc: Vector2):
 	send_point_to_main.connect(root_node.on_send_point_to_main)
 	send_point_to_main.emit(self.position + $End.position)
 	send_point_to_main.disconnect(root_node.on_send_point_to_main)
-	

@@ -15,7 +15,7 @@ func _process(delta):
 	if percent_there < 1:
 		percent_there += delta * speed
 	# TODO: Ask josh about a better way to do this. 
-	self.position = lerp(self.position, current_target / 2, percent_there / 2)
+	self.position = lerp(self.position, current_target, percent_there / 2)
 	self.position.y += 100
 
 func on_set_current_target(loc: Vector2):
