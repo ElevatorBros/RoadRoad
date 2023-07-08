@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://deowwuuspe30u" path="res://icon.svg" id="6_cu5qa"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jsfeq"]
-load_path = "res://.godot/imported/hollow_circle.png-f9e55cb51328f71a570606e5b9d1425a.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_of1va"]
 animations = [{
