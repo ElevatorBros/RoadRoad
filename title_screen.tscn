@@ -21,6 +21,7 @@ offset_left = 467.0
 offset_top = 204.0
 offset_right = 693.0
 offset_bottom = 479.0
+button_pressed = true
 text = "PLAY"
 icon = ExtResource("1_7y3rt")
 alignment = 1

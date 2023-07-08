@@ -1,10 +1,10 @@
 extends Node2D
 
 @export var straight_road: PackedScene
-@export var up_road: PackedScene
-@export var down_road: PackedScene
-@export var o_road: PackedScene
-@export var y_road: PackedScene
+@export var slight_up_road: PackedScene
+@export var slight_down_road: PackedScene
+@export var very_up_road: PackedScene
+@export var very_down_road: PackedScene
 
 var road_mapping = []
 var current_marker_loc = Vector2(0,500)
@@ -21,10 +21,10 @@ func _ready():
 	$SpawnArea/SpawnShape.spawn_cars()
 	
 	road_mapping.append(straight_road) 
-	road_mapping.append(up_road)
-	road_mapping.append(down_road)
-	road_mapping.append(o_road)
-	road_mapping.append(y_road)
+	road_mapping.append(slight_up_road)
+	road_mapping.append(slight_down_road)
+	road_mapping.append(very_up_road)
+	road_mapping.append(very_down_road)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

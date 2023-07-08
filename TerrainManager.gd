@@ -1,31 +1,37 @@
-extends CollisionShape2D
+extends Node2D
+
+var grid_size = 96
+
+var spawn_corner = Vector2(0,0)
+
+var spawn_corner_offset = Vector2(20,-15)
+var spawn_size = Vector2(10,60)
+
+var fudge = Vector2(0,0)
 
 @export var terrain_scene: PackedScene
 
-var chance = 100
-var radius_x = 800
-var radius_y = 3000
+signal update_terrain_position(loc: Vector2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.global_position = Vector2(5000, 0)
+	randomize()
 
-func spawn_terrain():
-	var spawn_area = self.global_position
-	
+func spawn_block():
+	var x = randi() % int(spawn_size.x)
+	var y = randi() % int(spawn_size.y)
+	var place_loc = Vector2(spawn_corner.x + spawn_corner_offset.x + x, spawn_corner.y + spawn_corner_offset.y + y) * grid_size + fudge
 	var terrain = terrain_scene.instantiate()
+	update_terrain_position.connect(terrain.on_update_terrain_postion)
+	update_terrain_position.emit(place_loc)
+	update_terrain_position.disconnect(terrain.on_update_terrain_postion)
+	add_child(terrain)
 	
-	var x = randf_range(spawn_area.x - radius_x, spawn_area.x + radius_x)
-	var y = randf_range(spawn_area.y - radius_y, spawn_area.y  + radius_y)
-	
-	terrain.global_position = Vector2(x, y)
-	
-	var scale = randf_range(0.3, 1.3)
-	terrain.scale = Vector2(scale, scale)
-		
-	get_tree().get_root().add_child(terrain)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (randi() % chance == 0):
-		spawn_terrain()
+	var i = int(self.get_parent().find_child("Camera2D").global_position.x / grid_size)
+	var j = int(self.get_parent().find_child("Camera2D").global_position.y / grid_size)
+	spawn_corner = Vector2(i, j) + spawn_corner_offset
+	
+	spawn_block()
