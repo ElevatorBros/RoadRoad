@@ -10,7 +10,6 @@ var old_road_rot = 0
 
 func add_road(a, b, rot) -> float:
 	var straight_road = straight_road_scene.instantiate()
-	print(straight_road)
 	add_child(straight_road)
 	move_child(straight_road, 0)
 	send_points_to_road.connect(straight_road.on_send_points_to_road)
@@ -38,7 +37,6 @@ func _input(event):
 	var current_mouse_pos = get_global_mouse_position()
 	if current_mouse_pos.distance_to(old_mouse_pos) > 50:
 		add_road(old_mouse_pos, current_mouse_pos, old_road_rot)
-		old_road_rot = atan2(old_mouse_pos.y - current_mouse_pos.y, old_mouse_pos.x - current_mouse_pos.x)
 		old_mouse_pos = get_global_mouse_position()
 
 
@@ -46,3 +44,6 @@ func _on_spawn_road_timeout():
 	pass
 	#add_road(old_mouse_pos, get_global_mouse_position())
 	#old_mouse_pos = get_global_mouse_position()s
+
+func on_update_old_rot(rot: float):
+	old_road_rot = rot
