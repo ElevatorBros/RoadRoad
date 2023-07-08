@@ -14,6 +14,10 @@ func _process(delta):
 	if self.global_position.distance_to(camera.global_position) > 10000:
 		self.free()
 
+var hit = Vector2(0, 0)
+func _draw():
+	draw_line(global_position, global_position + Vector2(100,0), Color(1, 0, 0))
+	
 func _physics_process(delta):
 	find_child("Sprite2D").rotation = velocity.angle()
 	
@@ -34,3 +38,33 @@ func _physics_process(delta):
 
 	velocity += pos_diff * bias
 	velocity = velocity.clamp(min_velocity, max_velocity)
+	
+	
+	var space_state = get_world_2d().direct_space_state
+	
+	
+	var left_ray = PhysicsRayQueryParameters2D.create(
+		global_position, global_position + Vector2(0, -20))
+	
+	var right_ray = PhysicsRayQueryParameters2D.create(
+		global_position, global_position + Vector2(0, 20))
+	
+	var front_ray = PhysicsRayQueryParameters2D.create(
+		global_position, global_position + Vector2(20, 0))
+		
+	var result_left = space_state.intersect_ray(left_ray)
+	var result_right = space_state.intersect_ray(right_ray)
+	var result_front = space_state.intersect_ray(front_ray)
+	
+	if result_left:
+		print("Left: ", result_left.position)
+		
+	if result_right:
+		print("Right: ", result_right.position)
+		velocity += Vector2(0, -20)
+	
+	if result_front:
+		velocity += Vector2(-20, 0)
+	
+	queue_redraw()
+
