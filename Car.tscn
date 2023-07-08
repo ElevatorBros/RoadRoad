@@ -11,6 +11,9 @@ scale = Vector2(0.8, 0.8)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 scale = Vector2(0.8, 0.8)
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
+safe_margin = 1.0
 script = ExtResource("1_wbneq")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]

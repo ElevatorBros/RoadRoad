@@ -6,13 +6,13 @@ var speed = 5
 
 var percent_there = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_released("zoom_in"):
+		self.zoom -= Vector2(0.1, 0.1)
+	if Input.is_action_just_released("zoom_out"):
+		self.zoom += Vector2(0.1, 0.1)
+		
 	if percent_there < 1:
 		percent_there += delta * speed
 	self.position = lerp(self.position, current_target, percent_there)
