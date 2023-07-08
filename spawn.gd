@@ -9,8 +9,6 @@ func _ready():
 		var spawn_area = self.shape.extents
 		var origin = self.global_position -  spawn_area
 		
-		print("Here")
-		
 		for i in car_amount:
 			var car = car_scene.instantiate()
 			
