@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="RoadRoad"
-run/main_scene="res://title_screen.tscn"
+run/main_scene="res://title_screen/title_screen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://title_screen/icon.svg"
 
 [display]
 
