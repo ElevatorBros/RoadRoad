@@ -9,7 +9,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	var camera = get_tree().root.get_child(0).get_child(0)
+	if self.global_position.distance_to(camera.global_position) > 10000:
+		self.free()
 
 
 func on_send_point_to_road(loc: Vector2):

@@ -4,6 +4,10 @@ extends CollisionShape2D
 @export var car_amount: int
 @export var car_scene: PackedScene
 
+var cars = []
+
+var cars_spawned = false
+
 func spawn_cars():
 	if spawn:
 		var spawn_area = self.shape.extents
@@ -19,3 +23,11 @@ func spawn_cars():
 			car.scale = Vector2(0.3, 0.3)
 			
 			add_child(car)
+			cars.append(car)
+			
+		cars_spawned = true
+
+func _process(delta):
+	if len(cars) == 0 and cars_spawned:
+		print("All cars gone")
+		get_tree().quit()

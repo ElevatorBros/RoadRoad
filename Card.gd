@@ -6,9 +6,11 @@ var percent_there = 0
 
 var speed = 10
 
+var current_type = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	self.position = Vector2(100000,10000)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,3 +25,4 @@ func on_set_current_target(loc: Vector2):
 
 func set_card_type(type: int):
 	$AnimatedSprite2D.frame = type
+	current_type = type

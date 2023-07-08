@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://roads/road.gd" id="1_swr5d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mru87"]
-size = Vector2(61.25, 22)
+size = Vector2(120.25, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj41f"]
-size = Vector2(462.03, 20)
+size = Vector2(518.56, 20)
 
 [node name="UpRoad" type="Node2D"]
 script = ExtResource("1_swr5d")
@@ -14,27 +14,29 @@ script = ExtResource("1_swr5d")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 61.0
 offset_bottom = 123.0
+scale = Vector2(1.96, 1.92)
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Top" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
-position = Vector2(31.375, 11)
+position = Vector2(60.875, 10.5)
 shape = SubResource("RectangleShape2D_mru87")
 
 [node name="Bottom" type="StaticBody2D" parent="."]
 position = Vector2(0, 100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
-position = Vector2(31, 11)
+position = Vector2(59, 126)
 shape = SubResource("RectangleShape2D_mru87")
 
 [node name="ColorRect3" type="ColorRect" parent="."]
-offset_left = 475.0
-offset_top = -144.0
-offset_right = 536.0
-offset_bottom = -21.0
+offset_left = 533.0
+offset_top = -160.0
+offset_right = 594.0
+offset_bottom = -37.0
+scale = Vector2(1.79792, 1.89817)
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -42,23 +44,23 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(475, -144)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top3"]
-position = Vector2(31.375, 11)
+position = Vector2(108, -6)
 shape = SubResource("RectangleShape2D_mru87")
 
 [node name="Bottom3" type="StaticBody2D" parent="."]
 position = Vector2(475, -44)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom3"]
-position = Vector2(31, 11)
+position = Vector2(109, 106)
 shape = SubResource("RectangleShape2D_mru87")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 22.0
-offset_top = 10.0
-offset_right = 499.0
-offset_bottom = 103.0
+offset_left = 45.0
+offset_top = 27.0
+offset_right = 522.0
+offset_bottom = 120.0
 rotation = -0.326771
-scale = Vector2(1.04559, 1.37223)
+scale = Vector2(1.08969, 2.37383)
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -66,7 +68,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(247, -57.6667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top2"]
-position = Vector2(-0.937775, 1.17732)
+position = Vector2(56, -13.3333)
 rotation = -0.331309
 shape = SubResource("RectangleShape2D_tj41f")
 
@@ -74,12 +76,12 @@ shape = SubResource("RectangleShape2D_tj41f")
 position = Vector2(282, 41.6667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom2"]
-position = Vector2(-2.28461, 1.76071)
+position = Vector2(76.7263, 101.491)
 rotation = -0.331309
 shape = SubResource("RectangleShape2D_tj41f")
 
 [node name="Beginning" type="Marker2D" parent="."]
-position = Vector2(0, 59)
+position = Vector2(0, 110)
 
 [node name="End" type="Marker2D" parent="."]
-position = Vector2(536, -86)
+position = Vector2(643, -56)

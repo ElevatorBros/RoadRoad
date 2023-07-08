@@ -10,16 +10,16 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_m046v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_33wdw")
-}, {
-"duration": 1.0,
 "texture": ExtResource("3_13eag")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_i33p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_m046v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_33wdw")
 }],
 "loop": false,
 "name": &"default",
@@ -30,10 +30,10 @@ animations = [{
 script = ExtResource("1_ryrq3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -330.0
-offset_top = -228.0
-offset_right = 340.0
-offset_bottom = 225.0
+offset_left = -438.0
+offset_top = -302.0
+offset_right = 466.0
+offset_bottom = 361.0
 color = Color(0.984314, 0, 0.337255, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
