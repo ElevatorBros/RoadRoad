@@ -12,10 +12,12 @@ metadata/_edit_horizontal_guides_ = []
 [node name="Roads" type="Node2D" parent="."]
 
 [node name="StraightRoad" parent="Roads" instance=ExtResource("2_bkqul")]
+visible = false
 position = Vector2(231, 256)
 scale = Vector2(14.4744, 4.95241)
 
 [node name="StraightRoad2" parent="Roads" instance=ExtResource("2_bkqul")]
+visible = false
 position = Vector2(492, 272)
 rotation = -1.5708
 scale = Vector2(4.10185, -6.23892)
@@ -23,16 +25,22 @@ scale = Vector2(4.10185, -6.23892)
 [node name="Cars" type="Node2D" parent="."]
 
 [node name="Car" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(277, 452)
+position = Vector2(47, 350)
 
 [node name="Car2" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(759, 458)
+position = Vector2(191, 314)
 
 [node name="Car3" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(697, 188)
+position = Vector2(129, 350)
 
 [node name="Car4" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(393, 172)
+position = Vector2(121, 302)
 
 [node name="Car5" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(236, 272)
+position = Vector2(46, 300)
+
+[node name="Spawn_Road" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Spawn_Road" to="." method="_on_spawn_road_timeout"]
