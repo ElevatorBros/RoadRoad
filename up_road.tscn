@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://diwnb0xv5w56d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mru87"]
+size = Vector2(61.25, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tj41f"]
+size = Vector2(462.03, 20)
+
+[node name="StraightRoad" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 61.0
+offset_bottom = 123.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Top" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2(31.375, 11)
+shape = SubResource("RectangleShape2D_mru87")
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+position = Vector2(0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(31, 11)
+shape = SubResource("RectangleShape2D_mru87")
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 475.0
+offset_top = -144.0
+offset_right = 536.0
+offset_bottom = -21.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Top3" type="StaticBody2D" parent="."]
+position = Vector2(475, -144)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top3"]
+position = Vector2(31.375, 11)
+shape = SubResource("RectangleShape2D_mru87")
+
+[node name="Bottom3" type="StaticBody2D" parent="."]
+position = Vector2(475, -44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom3"]
+position = Vector2(31, 11)
+shape = SubResource("RectangleShape2D_mru87")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 28.0
+offset_top = 25.0
+offset_right = 505.0
+offset_bottom = 118.0
+rotation = -0.326771
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Top2" type="StaticBody2D" parent="."]
+position = Vector2(87, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top2"]
+position = Vector2(174.135, -56.4057)
+rotation = -0.331309
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tj41f")
+
+[node name="Bottom2" type="StaticBody2D" parent="."]
+position = Vector2(87, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom2"]
+position = Vector2(193, 37)
+rotation = -0.331309
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tj41f")
+
+[node name="End" type="Marker2D" parent="."]
+position = Vector2(0, 59)
+
+[node name="Beginning" type="Marker2D" parent="."]
+position = Vector2(536, -86)
