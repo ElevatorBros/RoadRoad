@@ -8,7 +8,7 @@ func _ready():
 	set_velocity(initial_velocity)
 
 func _physics_process(delta):
-	rotation = velocity.angle()
+	$Sprite2D.rotation = velocity.angle()
 	
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:

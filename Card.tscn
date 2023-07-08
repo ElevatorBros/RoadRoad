@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2th31hoqsxrg"]
+
+[ext_resource type="Texture2D" uid="uid://cq3wjgqkslwlk" path="res://assets/down_road.png" id="1_m046v"]
+[ext_resource type="Script" path="res://Card.gd" id="1_ryrq3"]
+[ext_resource type="Texture2D" uid="uid://bfnv4fl35a70c" path="res://assets/moon_road.png" id="2_33wdw"]
+[ext_resource type="Texture2D" uid="uid://u3uy36j62al2" path="res://assets/straight_road.png" id="3_13eag"]
+[ext_resource type="Texture2D" uid="uid://drscmc57amfre" path="res://assets/up_road.png" id="4_i33p7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of1va"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m046v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_33wdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_13eag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i33p7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_ryrq3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -330.0
+offset_top = -228.0
+offset_right = 340.0
+offset_bottom = 225.0
+color = Color(0.984314, 0, 0.337255, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_of1va")
