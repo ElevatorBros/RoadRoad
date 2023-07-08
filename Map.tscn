@@ -15,14 +15,8 @@ metadata/_edit_horizontal_guides_ = []
 
 [node name="Roads" type="Node2D" parent="."]
 
-[node name="StraightRoad" parent="Roads" instance=ExtResource("2_bkqul")]
-visible = false
-position = Vector2(231, 256)
-scale = Vector2(14.4744, 4.95241)
-
 [node name="StraightRoad2" parent="Roads" instance=ExtResource("2_bkqul")]
-visible = false
-position = Vector2(492, 272)
+position = Vector2(-131, 292)
 rotation = -1.5708
 scale = Vector2(4.10185, -6.23892)
 
@@ -37,11 +31,12 @@ car_amount = 5
 car_scene = ExtResource("1_h4w07")
 
 [node name="Spawn_Road" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.5
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_4vgyv")
 scroll = true
+speed = 5.0
 
 [connection signal="timeout" from="Spawn_Road" to="." method="_on_spawn_road_timeout"]

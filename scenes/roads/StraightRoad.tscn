@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/roads/StraightRoad.gd" id="1_tbdbh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4oqp"]
-size = Vector2(685.385, 29)
+size = Vector2(3000, 10)
 
 [node name="StraightRoad" type="Node2D"]
 position = Vector2(-7.62939e-06, 0)
@@ -14,9 +14,7 @@ script = ExtResource("1_tbdbh")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Bottom" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1.53847, 312)
 shape = SubResource("RectangleShape2D_w4oqp")
 
 [node name="Top" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1.92308, -313.25)
 shape = SubResource("RectangleShape2D_w4oqp")

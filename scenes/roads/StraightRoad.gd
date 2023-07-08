@@ -1,23 +1,25 @@
 extends Node2D
 
-var start_pos_top = Vector2(0,0)
-var end_pos_top = Vector2(0,0)
+var start_pos_top = Vector2(0.0,0.0)
+var end_pos_top = Vector2(0.0,0.0)
 
-var start_pos_bottom = Vector2(0,0)
-var end_pos_bottom = Vector2(0,0)
+var start_pos_bottom = Vector2(0.0,0.0)
+var end_pos_bottom = Vector2(0.0,0.0)
 
-var road_x_size = 680
+var road_x_size = 3000.0
 
-var road_y_scale = 0.4
+var road_y_scale = 1
 
 var indent = 20
 
-var separation = 50
+var separation = 300
 
 signal update_old_rot(old_rot: float)
 
 func on_send_points_to_road(a: Vector2, b: Vector2, old_rot: float):
 	var rot = atan2(b.y - a.y, b.x - a.x)
+	
+	
 	#old_rot = PI/2 - old_rot
 	#start_pos_top = a - Vector2(sin(old_rot)*separation, cos(old_rot)*separation)
 	#end_pos_top = b - Vector2(sin(rot)*separation, cos(rot)*separation)
