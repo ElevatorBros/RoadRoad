@@ -1,18 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=17 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
-[ext_resource type="PackedScene" uid="uid://bvky2b3uqo3vf" path="res://roads/straight_road.tscn" id="2_jdv0a"]
+[ext_resource type="PackedScene" uid="uid://bvky2b3uqo3vf" path="res://scenes/roads/straight_road.tscn" id="2_0xk6j"]
 [ext_resource type="PackedScene" uid="uid://b300jhat3hll0" path="res://Car.tscn" id="2_w4gjd"]
-[ext_resource type="PackedScene" uid="uid://c53tnxs0grhri" path="res://roads/slight_up_road.tscn" id="3_l7cua"]
-[ext_resource type="PackedScene" uid="uid://dpogjtwp4ke03" path="res://roads/slight_down_road.tscn" id="4_omxnx"]
+[ext_resource type="PackedScene" uid="uid://c53tnxs0grhri" path="res://scenes/roads/slight_up_road.tscn" id="3_y0mto"]
+[ext_resource type="PackedScene" uid="uid://dpogjtwp4ke03" path="res://scenes/roads/slight_down_road.tscn" id="4_4invc"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="5_0euvl"]
-[ext_resource type="PackedScene" uid="uid://dra1f2qvdvyfp" path="res://roads/very_up_road.tscn" id="5_td4hn"]
-[ext_resource type="PackedScene" uid="uid://bnblufu1hqoal" path="res://roads/very_down_road.tscn" id="6_vjfen"]
-[ext_resource type="Script" path="res://RoadOptionManager.gd" id="7_tsfgg"]
-[ext_resource type="Script" path="res://Spawn.gd" id="8_tlr0w"]
+[ext_resource type="PackedScene" uid="uid://dra1f2qvdvyfp" path="res://scenes/roads/very_up_road.tscn" id="5_3dbkq"]
+[ext_resource type="PackedScene" uid="uid://bnblufu1hqoal" path="res://scenes/roads/very_down_road.tscn" id="6_n5gvb"]
+[ext_resource type="Script" path="res://scenes/TerrainManager.gd" id="7_odv5m"]
+[ext_resource type="PackedScene" uid="uid://0hkprff666bu" path="res://scenes/Terrain.tscn" id="8_fqp3v"]
 [ext_resource type="PackedScene" uid="uid://d2th31hoqsxrg" path="res://Card.tscn" id="8_vsguc"]
-[ext_resource type="Script" path="res://TerrainManager.gd" id="9_3v2kd"]
-[ext_resource type="PackedScene" uid="uid://0hkprff666bu" path="res://Terrain.tscn" id="10_xgcf5"]
+[ext_resource type="Script" path="res://scenes/RoadOptionManager.gd" id="10_1xbbe"]
+[ext_resource type="Script" path="res://scenes/Spawn.gd" id="12_uuqad"]
+[ext_resource type="PackedScene" uid="uid://dmkps28gkr06h" path="res://scenes/grid/GridGenerator.tscn" id="14_r4i1b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul8l8"]
 size = Vector2(191, 83.75)
@@ -22,30 +23,36 @@ size = Vector2(48.015, 633)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w4xsq")
-straight_road = ExtResource("2_jdv0a")
-slight_up_road = ExtResource("3_l7cua")
-slight_down_road = ExtResource("4_omxnx")
-very_up_road = ExtResource("5_td4hn")
-very_down_road = ExtResource("6_vjfen")
+straight_road = ExtResource("2_0xk6j")
+slight_up_road = ExtResource("3_y0mto")
+slight_down_road = ExtResource("4_4invc")
+very_up_road = ExtResource("5_3dbkq")
+very_down_road = ExtResource("6_n5gvb")
+
+[node name="GridGenerator" parent="." instance=ExtResource("14_r4i1b")]
+z_index = -1
 
 [node name="TerrainManager" type="Node2D" parent="."]
-script = ExtResource("9_3v2kd")
-terrain_scene = ExtResource("10_xgcf5")
+script = ExtResource("7_odv5m")
+terrain_scene = ExtResource("8_fqp3v")
+
+[node name="Timer" type="Timer" parent="TerrainManager"]
+wait_time = 0.2
+autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_0euvl")
 
 [node name="RoadOptionManager" type="Node2D" parent="Camera2D"]
-script = ExtResource("7_tsfgg")
+script = ExtResource("10_1xbbe")
 card_scene = ExtResource("8_vsguc")
 
 [node name="SpawnArea" type="Area2D" parent="."]
-visible = false
 position = Vector2(0, -42)
 
 [node name="SpawnShape" type="CollisionShape2D" parent="SpawnArea"]
 shape = SubResource("RectangleShape2D_ul8l8")
-script = ExtResource("8_tlr0w")
+script = ExtResource("12_uuqad")
 car_amount = 20
 car_scene = ExtResource("2_w4gjd")
 
@@ -53,7 +60,6 @@ car_scene = ExtResource("2_w4gjd")
 position = Vector2(-1, 318)
 
 [node name="BackWall" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(-116, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
@@ -63,4 +69,8 @@ shape = SubResource("RectangleShape2D_bjytq")
 [node name="PlaceRoad" type="Timer" parent="."]
 wait_time = 1.7
 
+[node name="Car" parent="." instance=ExtResource("2_w4gjd")]
+position = Vector2(-49, -35)
+
+[connection signal="timeout" from="TerrainManager/Timer" to="TerrainManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="PlaceRoad" to="." method="_on_place_road_timeout"]

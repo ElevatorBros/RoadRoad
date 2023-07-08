@@ -14,6 +14,4 @@ func _process(delta):
 		self.hide()
 		get_tree().get_root().add_child(scene)
 		
-
 		self.button_pressed = false
-		

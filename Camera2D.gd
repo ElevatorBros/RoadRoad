@@ -7,9 +7,9 @@ var speed = 5
 var percent_there = 0
 
 func _ready():
-	#if OS.is_debug_build():
+	if OS.is_debug_build():
 		# TODO: Discuss with Josh and Orestes to see if this is cool
-		#self.set_zoom(Vector2(0.5,0.5))
+		self.set_zoom(Vector2(0.5,0.5))
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

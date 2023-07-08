@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://mu4h2y1ydwsp"]
+
+[ext_resource type="Texture2D" uid="uid://54iu6qjcj0u" path="res://assets/grid-cell-off.png" id="1_6cu6c"]
+[ext_resource type="Texture2D" uid="uid://cv4mpq8pxopix" path="res://assets/grid-cell-on.png" id="2_6wr02"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q8jcm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6wr02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_6cu6c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GridCell" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q8jcm")

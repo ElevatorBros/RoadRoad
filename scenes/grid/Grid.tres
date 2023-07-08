@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Grid" load_steps=2 format=3 uid="uid://b2ugxloc02xur"]
+
+[ext_resource type="Script" path="res://scenes/grid/Grid.gd" id="1_knwfm"]
+
+[resource]
+script = ExtResource("1_knwfm")
+size = null
+cell_size = null

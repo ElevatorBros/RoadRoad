@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmkps28gkr06h"]
+
+[ext_resource type="Script" path="res://scenes/grid/GridGenerator.gd" id="1_6j74y"]
+[ext_resource type="PackedScene" uid="uid://mu4h2y1ydwsp" path="res://scenes/grid/GridCell.tscn" id="2_iqfag"]
+
+[node name="GridGenerator" type="Node2D"]
+script = ExtResource("1_6j74y")
+grid_cell = ExtResource("2_iqfag")

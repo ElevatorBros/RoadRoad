@@ -30,6 +30,7 @@ func add_card():
 	var card = card_scene.instantiate()
 	card.set_card_type(randi() % card_types)
 	add_child(card)
+	move_child(card, 1)
 	current_cards.append(card)
 	
 func update_card_target_positions():

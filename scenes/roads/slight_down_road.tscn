@@ -1,32 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://dra1f2qvdvyfp"]
+[gd_scene load_steps=4 format=3 uid="uid://dpogjtwp4ke03"]
 
-[ext_resource type="Script" path="res://roads/road.gd" id="1_sy30v"]
-[ext_resource type="Texture2D" uid="uid://deowwuuspe30u" path="res://icon.svg" id="2_jx75d"]
+[ext_resource type="Script" path="res://scenes/roads/road.gd" id="1_qsnu3"]
+[ext_resource type="Texture2D" uid="uid://bfqsljant7p3q" path="res://assets/road_slight.png" id="2_1jggi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mru87"]
-size = Vector2(192, 16)
+size = Vector2(288, 16)
 
 [node name="StraightRoad" type="Node2D"]
-script = ExtResource("1_sy30v")
+script = ExtResource("1_qsnu3")
 
 [node name="Beginning" type="Marker2D" parent="."]
-position = Vector2(-96, 96)
+position = Vector2(-144, -48)
 
 [node name="End" type="Marker2D" parent="."]
-position = Vector2(96, -96)
+position = Vector2(144, 48)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 2.25)
-texture = ExtResource("2_jx75d")
+rotation = 1.5708
+texture = ExtResource("2_1jggi")
 
 [node name="Top" type="StaticBody2D" parent="."]
-position = Vector2(0, -136)
+position = Vector2(0, -88)
+rotation = 0.349066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2(11.8878, 41.4328)
 shape = SubResource("RectangleShape2D_mru87")
 
 [node name="Bottom" type="StaticBody2D" parent="."]
-position = Vector2(0, 136)
+position = Vector2(0, 42)
+rotation = 0.349066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
 shape = SubResource("RectangleShape2D_mru87")

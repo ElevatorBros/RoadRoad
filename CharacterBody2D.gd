@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-var initial_velocity = Vector2(500, 0)
-var min_velocity = Vector2(-800, -800)
-var max_velocity = Vector2(800, 800)
+var speed = 50
+var initial_velocity = Vector2(speed, 0)
+var min_velocity = Vector2(-1 * speed, -1 * speed)
+var max_velocity = Vector2(speed, speed)
 
 func _ready():
 	randomize()
