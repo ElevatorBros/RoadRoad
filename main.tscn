@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=6 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
 [ext_resource type="PackedScene" uid="uid://cv5ksunhhymtn" path="res://straight_road.tscn" id="2_jdv0a"]
 [ext_resource type="PackedScene" uid="uid://diwnb0xv5w56d" path="res://up_road.tscn" id="3_l304y"]
+[ext_resource type="PackedScene" uid="uid://khrbdi8t0tte" path="res://down_road.tscn" id="4_bonq5"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="5_0euvl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w4xsq")
 straight_road = ExtResource("2_jdv0a")
 up_road = ExtResource("3_l304y")
+down_road = ExtResource("4_bonq5")
 
 [node name="Start" type="Marker2D" parent="."]
 position = Vector2(-1, 318)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_0euvl")

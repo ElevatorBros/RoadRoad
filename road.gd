@@ -16,9 +16,9 @@ func on_send_point_to_road(loc: Vector2):
 	var start_loc = $Beginning.position
 	self.position = loc - start_loc
 	
-	var root_node = get_tree().get_root().get_node("Map") 
+	var root_node = get_tree().get_root().get_node("Main") 
 
 	send_point_to_main.connect(root_node.on_send_point_to_main)
-	send_point_to_main.emit($End.position)
+	send_point_to_main.emit(self.position + $End.position)
 	send_point_to_main.disconnect(root_node.on_send_point_to_main)
 	
