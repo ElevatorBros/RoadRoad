@@ -32,3 +32,6 @@ func _input(ev):
 		place_road(straight_road)
 	if ev is InputEventKey and ev.scancode == KEY_2:
 		place_road(up_road)
+
+func on_send_point_to_main(loc: Vector2):
+	current_marker_loc = loc
