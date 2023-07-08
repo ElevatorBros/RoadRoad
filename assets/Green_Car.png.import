@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://capjtl8mgl65h"
-path="res://.godot/imported/hollow_circle.png-87373d16038f04824d9099dc56c84e0a.ctex"
+uid="uid://by7do2868ttxe"
+path="res://.godot/imported/Green_Car.png-e253735f9e8b74efdee730f243b426fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hollow_circle.png"
-dest_files=["res://.godot/imported/hollow_circle.png-87373d16038f04824d9099dc56c84e0a.ctex"]
+source_file="res://assets/Green_Car.png"
+dest_files=["res://.godot/imported/Green_Car.png-e253735f9e8b74efdee730f243b426fa.ctex"]
 
 [params]
 

@@ -1,19 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=10 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
-[ext_resource type="PackedScene" uid="uid://cv5ksunhhymtn" path="res://straight_road.tscn" id="2_jdv0a"]
-[ext_resource type="PackedScene" uid="uid://diwnb0xv5w56d" path="res://up_road.tscn" id="3_l304y"]
-[ext_resource type="PackedScene" uid="uid://khrbdi8t0tte" path="res://down_road.tscn" id="4_bonq5"]
+[ext_resource type="PackedScene" uid="uid://cv5ksunhhymtn" path="res://roads/straight_road.tscn" id="2_jdv0a"]
+[ext_resource type="PackedScene" uid="uid://b300jhat3hll0" path="res://Car.tscn" id="2_w4gjd"]
+[ext_resource type="PackedScene" uid="uid://diwnb0xv5w56d" path="res://roads/up_road.tscn" id="3_l304y"]
+[ext_resource type="PackedScene" uid="uid://khrbdi8t0tte" path="res://roads/down_road.tscn" id="4_bonq5"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="5_0euvl"]
+[ext_resource type="PackedScene" uid="uid://c6msh1c3wlap7" path="res://roads/moon_road.tscn" id="5_fnync"]
+[ext_resource type="Script" path="res://Spawn.gd" id="8_tlr0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul8l8"]
+size = Vector2(191, 83.75)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w4xsq")
 straight_road = ExtResource("2_jdv0a")
 up_road = ExtResource("3_l304y")
 down_road = ExtResource("4_bonq5")
+moon_road = ExtResource("5_fnync")
 
 [node name="Start" type="Marker2D" parent="."]
 position = Vector2(-1, 318)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_0euvl")
+
+[node name="SpawnArea" type="Area2D" parent="."]
+
+[node name="SpawnShape" type="CollisionShape2D" parent="SpawnArea"]
+position = Vector2(123.5, 111.125)
+shape = SubResource("RectangleShape2D_ul8l8")
+script = ExtResource("8_tlr0w")
+spawn = true
+car_amount = 3
+car_scene = ExtResource("2_w4gjd")

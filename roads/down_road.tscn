@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://khrbdi8t0tte"]
 
-[ext_resource type="Script" path="res://road.gd" id="1_6a5d2"]
+[ext_resource type="Script" path="res://roads/road.gd" id="1_1ylw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mru87"]
 size = Vector2(61.25, 22)
@@ -8,8 +8,8 @@ size = Vector2(61.25, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj41f"]
 size = Vector2(494.427, 20)
 
-[node name="StraightRoad" type="Node2D"]
-script = ExtResource("1_6a5d2")
+[node name="DownRoad" type="Node2D"]
+script = ExtResource("1_1ylw2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 61.0
