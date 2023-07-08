@@ -38,20 +38,18 @@ script = ExtResource("5_0euvl")
 script = ExtResource("7_tsfgg")
 card_scene = ExtResource("8_vsguc")
 
-[node name="TerrainManager" type="Area2D" parent="Camera2D"]
+[node name="TerrainManager" type="Area2D" parent="."]
 position = Vector2(5778, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrainManager"]
+shape = SubResource("RectangleShape2D_ffexu")
 script = ExtResource("9_3v2kd")
 terrain_scene = ExtResource("10_xgcf5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/TerrainManager"]
-position = Vector2(-33, 27)
-shape = SubResource("RectangleShape2D_ffexu")
-
 [node name="SpawnArea" type="Area2D" parent="."]
-position = Vector2(-13, -47)
+position = Vector2(0, -42)
 
 [node name="SpawnShape" type="CollisionShape2D" parent="SpawnArea"]
-position = Vector2(14, 4)
 shape = SubResource("RectangleShape2D_ul8l8")
 script = ExtResource("8_tlr0w")
 spawn = true
