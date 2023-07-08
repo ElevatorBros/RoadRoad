@@ -6,24 +6,33 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	straight_road.position = Vector2(600,600)
+	straight_road.global_position = Vector2(600,600)
 	roads.add_child(straight_road)
 	roads.move_child(straight_road, -1)
 
 
+var last_mouse_position = Vector2(600, 600 + 125)
+
 func add_road():
 	var mouse = get_global_mouse_position()
-	var last_position = roads.get_child(-1).position
-	var scale_x = max(mouse.x, last_position.x) / min(mouse.x, last_position.x)
+	
+	var scale = last_mouse_position.distance_to(mouse) / 125
+	
 	var new_straight_road = straight_road_scene.instantiate()
 	
-	new_straight_road.scale = Vector2(scale_x, 1)
-	new_straight_road.position = mouse
-	new_straight_road.rotation = atan2(last_position.y - mouse.y, last_position.x - mouse.x)
-	print("Rotation: ", new_straight_road.rotation)
+	new_straight_road.scale = Vector2(scale, 1)
+	print("Mouse: ", mouse)
+	print("Last: ", last_mouse_position)
+	print("Distance:" , last_mouse_position.distance_to(mouse))
+	print("Scale: ", new_straight_road.scale)
+	
+	new_straight_road.global_position = mouse
+	new_straight_road.rotation = atan2(last_mouse_position.y - mouse.y, last_mouse_position.x - mouse.x)
 
 	roads.add_child(new_straight_road)
 	roads.move_child(new_straight_road, -1)
+	
+	last_mouse_position = mouse
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
