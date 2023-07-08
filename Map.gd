@@ -16,8 +16,8 @@ func add_road(a, b, rot) -> float:
 	send_points_to_road.emit(a, b, rot)
 	send_points_to_road.disconnect(straight_road.on_send_points_to_road)
 	
-	return rot
-
+	return rot	
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#straight_road.global_position = Vector2(600,600)
