@@ -10,15 +10,14 @@ var old_road_rot = 0
 
 func add_road(a, b, rot) -> float:
 	var straight_road = straight_road_scene.instantiate()
-	print(straight_road)
 	add_child(straight_road)
 	move_child(straight_road, 0)
 	send_points_to_road.connect(straight_road.on_send_points_to_road)
 	send_points_to_road.emit(a, b, rot)
 	send_points_to_road.disconnect(straight_road.on_send_points_to_road)
 	
-	return rot
-
+	return rot	
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#straight_road.global_position = Vector2(600,600)

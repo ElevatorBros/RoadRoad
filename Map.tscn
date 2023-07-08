@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://4mbtxrbjrs4b"]
+[gd_scene load_steps=7 format=3 uid="uid://4mbtxrbjrs4b"]
 
 [ext_resource type="Script" path="res://Map.gd" id="1_06fkd"]
 [ext_resource type="PackedScene" uid="uid://bryse20rffvq6" path="res://scenes/car/Car.tscn" id="1_h4w07"]
 [ext_resource type="PackedScene" uid="uid://cvtsw55ccvlxl" path="res://scenes/roads/StraightRoad.tscn" id="2_bkqul"]
-[ext_resource type="Script" path="res://Camera2D.gd" id="4_u1qw2"]
+[ext_resource type="Script" path="res://spawn.gd" id="3_6omkp"]
+[ext_resource type="Script" path="res://camera.gd" id="5_4vgyv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k7aw"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_06fkd")
@@ -23,28 +26,22 @@ position = Vector2(492, 272)
 rotation = -1.5708
 scale = Vector2(4.10185, -6.23892)
 
-[node name="Cars" type="Node2D" parent="."]
+[node name="SpawnArea" type="Area2D" parent="."]
 
-[node name="Car" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(47, 350)
-
-[node name="Car2" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(191, 314)
-
-[node name="Car3" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(129, 350)
-
-[node name="Car4" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(121, 302)
-
-[node name="Car5" parent="Cars" instance=ExtResource("1_h4w07")]
-position = Vector2(46, 300)
+[node name="SpawnShape" type="CollisionShape2D" parent="SpawnArea"]
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_4k7aw")
+script = ExtResource("3_6omkp")
+spawn = true
+car_amount = 5
+car_scene = ExtResource("1_h4w07")
 
 [node name="Spawn_Road" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("4_u1qw2")
+script = ExtResource("5_4vgyv")
+scroll = true
 
 [connection signal="timeout" from="Spawn_Road" to="." method="_on_spawn_road_timeout"]
