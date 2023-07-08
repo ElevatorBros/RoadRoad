@@ -6,7 +6,7 @@
 size = Vector2(80.625, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj41f"]
-size = Vector2(494.427, 20)
+size = Vector2(477.574, 20.6161)
 
 [node name="DownRoad" type="Node2D"]
 script = ExtResource("1_1ylw2")
@@ -21,7 +21,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Top" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
-position = Vector2(31.375, 11)
+position = Vector2(41, 11)
 shape = SubResource("RectangleShape2D_mru87")
 
 [node name="Bottom" type="StaticBody2D" parent="."]
@@ -68,15 +68,16 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(87, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top2"]
-position = Vector2(201, 88)
-rotation = 0.287638
+position = Vector2(212, 78)
+rotation = 0.296706
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tj41f")
 
 [node name="Bottom2" type="StaticBody2D" parent="."]
 position = Vector2(87, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom2"]
-position = Vector2(162, 263)
+position = Vector2(159, 269)
 rotation = 0.274772
 shape = SubResource("RectangleShape2D_tj41f")
 

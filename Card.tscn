@@ -27,6 +27,7 @@ animations = [{
 }]
 
 [node name="Card" type="Node2D"]
+scale = Vector2(0.40605, 0.40605)
 script = ExtResource("1_ryrq3")
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -3,16 +3,13 @@ extends Node2D
 @export var straight_road: PackedScene
 @export var up_road: PackedScene
 @export var down_road: PackedScene
-
 @export var o_road: PackedScene
 
 var road_mapping = []
-
 var current_marker_loc = Vector2(0,500)
 
 
 signal send_point_to_road(loc: Vector2)
-
 signal update_camera_target(loc: Vector2)
 
 # Called when the node enters the scene tree for the first time.

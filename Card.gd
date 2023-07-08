@@ -1,11 +1,8 @@
 extends Node2D
 
 var current_target = Vector2(0,0)
-
 var percent_there = 0
-
-var speed = 10
-
+var speed = 1
 var current_type = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +14,9 @@ func _ready():
 func _process(delta):
 	if percent_there < 1:
 		percent_there += delta * speed
-	self.position = lerp(self.position, current_target, percent_there)
+	# TODO: Ask josh about a better way to do this. 
+	self.position = lerp(self.position, current_target / 2, percent_there / 2)
+	self.position.y += 100
 
 func on_set_current_target(loc: Vector2):
 	percent_there = 0
