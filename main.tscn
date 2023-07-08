@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=17 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
 [ext_resource type="PackedScene" uid="uid://cv5ksunhhymtn" path="res://roads/straight_road.tscn" id="2_jdv0a"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://khrbdi8t0tte" path="res://roads/down_road.tscn" id="4_bonq5"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="5_0euvl"]
 [ext_resource type="PackedScene" uid="uid://4g1u1dy7pd6g" path="res://roads/O_road.tscn" id="5_m4se2"]
+[ext_resource type="PackedScene" uid="uid://dapc1rr5381fm" path="res://roads/y_road.tscn" id="6_4njow"]
 [ext_resource type="Script" path="res://RoadOptionManager.gd" id="7_tsfgg"]
 [ext_resource type="Script" path="res://Spawn.gd" id="8_tlr0w"]
 [ext_resource type="PackedScene" uid="uid://d2th31hoqsxrg" path="res://Card.tscn" id="8_vsguc"]
@@ -28,6 +29,7 @@ straight_road = ExtResource("2_jdv0a")
 up_road = ExtResource("3_l304y")
 down_road = ExtResource("4_bonq5")
 o_road = ExtResource("5_m4se2")
+y_road = ExtResource("6_4njow")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_0euvl")
@@ -46,10 +48,10 @@ position = Vector2(-33, 27)
 shape = SubResource("RectangleShape2D_ffexu")
 
 [node name="SpawnArea" type="Area2D" parent="."]
-position = Vector2(-8, 6)
+position = Vector2(-13, -47)
 
 [node name="SpawnShape" type="CollisionShape2D" parent="SpawnArea"]
-position = Vector2(9, 1)
+position = Vector2(14, 4)
 shape = SubResource("RectangleShape2D_ul8l8")
 script = ExtResource("8_tlr0w")
 spawn = true
