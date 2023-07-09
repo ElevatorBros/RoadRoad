@@ -29,8 +29,8 @@ func _ready():
 	custom_pos = Vector2(0,0)
 
 	zoom_out = false
-	zoom_start = 12
-	zoom_goal = 2
+	zoom_start = 6
+	zoom_goal = 1
 	zoom_percent = 0
 	start_wait = 0.25
 
