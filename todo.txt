@@ -1,0 +1,15 @@
+Things We need to do:
+	* Music / sound effects
+	* Terrain placment and balence
+	* Banna peal
+	* Finish
+
+Things I would like to do:
+	* Additional terrain thing (% death)
+	* Polish
+	* Diffent modes (timed / endless)
+	* Best time
+	* 
+
+Thinks Orestes wants that will not happen:
+	* Guns
