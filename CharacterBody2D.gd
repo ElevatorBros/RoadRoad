@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	var camera = get_tree().root.get_child(0).get_child(0)
 	if self.global_position.distance_to(camera.global_position) > 10000:
-		self.free()
+		#self.free()
 
 var hit = Vector2(0, 0)
 func _draw():
@@ -57,10 +57,11 @@ func _physics_process(delta):
 	var result_front = space_state.intersect_ray(front_ray)
 	
 	if result_left:
-		print("Left: ", result_left.position)
+		#print("Left: ", result_left.position)
+		pass
 		
 	if result_right:
-		print("Right: ", result_right.position)
+		#print("Right: ", result_right.position)
 		velocity += Vector2(0, -20)
 	
 	if result_front:

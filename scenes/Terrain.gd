@@ -12,7 +12,8 @@ func _process(delta):
 	self.global_position.y = int(self.global_position.y)
 	var camera = get_tree().root.get_child(0).get_child(0)
 	if self.global_position.distance_to(camera.global_position) > 10000:
-		self.free()
+		#self.free()
+		pass
 
 
 func _on_area_2d_body_entered(body):

@@ -4,8 +4,8 @@ var grid_size = 96
 
 var spawn_corner = Vector2(0,0)
 
-var spawn_corner_offset = Vector2(20,-15)
-var spawn_size = Vector2(10,60)
+var spawn_corner_offset = Vector2(20,-10)
+var spawn_size = Vector2(10,40)
 
 var fudge = Vector2(0,0)
 

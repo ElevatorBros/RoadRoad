@@ -2,9 +2,9 @@ extends Node2D
 
 var current_cards = []
 
-var card_start_loc = Vector2(-1400, 700)
+var card_start_loc = Vector2(-750, 300)
 
-var card_space = Vector2(1000, 0)
+var card_space = Vector2(500, 0)
 
 var card_types = 5
 

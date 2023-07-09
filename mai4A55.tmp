@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=18 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
 [ext_resource type="PackedScene" uid="uid://bvky2b3uqo3vf" path="res://scenes/roads/straight_road.tscn" id="2_0xk6j"]
@@ -14,11 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://mu4h2y1ydwsp" path="res://scenes/grid/GridCell.tscn" id="8_g4d7y"]
 [ext_resource type="PackedScene" uid="uid://d2th31hoqsxrg" path="res://Card.tscn" id="8_vsguc"]
 [ext_resource type="Script" path="res://scenes/RoadOptionManager.gd" id="10_1xbbe"]
-[ext_resource type="Script" path="res://Label.gd" id="12_sqb8y"]
 [ext_resource type="Script" path="res://scenes/Spawn.gd" id="12_uuqad"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_hxjxf"]
-font_size = 100
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul8l8"]
 size = Vector2(191, 83.75)
@@ -39,24 +35,11 @@ script = ExtResource("7_byxam")
 grid_cell = ExtResource("8_g4d7y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-z_index = -1
-z_as_relative = false
 script = ExtResource("5_0euvl")
 
 [node name="RoadOptionManager" type="Node2D" parent="Camera2D"]
 script = ExtResource("10_1xbbe")
 card_scene = ExtResource("8_vsguc")
-
-[node name="Label" type="Label" parent="Camera2D"]
-z_index = 10
-z_as_relative = false
-offset_left = -99.0
-offset_top = -460.0
-offset_right = 99.0
-offset_bottom = -320.0
-text = "0.00"
-label_settings = SubResource("LabelSettings_hxjxf")
-script = ExtResource("12_sqb8y")
 
 [node name="TerrainManager" type="Node2D" parent="."]
 script = ExtResource("7_odv5m")
