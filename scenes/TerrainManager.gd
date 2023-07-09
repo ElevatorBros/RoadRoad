@@ -2,7 +2,7 @@ extends Node2D
 
 var grid_size = 96
 
-var spawn_corner = Vector2(0,0)
+var spawn_corner = Vector2(10,0)
 
 var spawn_corner_offset = Vector2(6,-10)
 var spawn_size = Vector2(10,40)
@@ -16,7 +16,7 @@ signal update_terrain_position(loc: Vector2)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	for i in range(50):
+	for i in range(30):
 		spawn_block()
 
 func spawn_block():

@@ -46,8 +46,10 @@ func _process(delta):
 
 
 func on_send_point_to_road(loc: Vector2):
-	var start_loc = $Beginning.position
-	self.position = loc - start_loc
+	#var start_loc = $Beginning.position
+	var start_loc = $Beginning.global_position
+	self.position = loc - start_loc + Vector2(0,0)
+	#self.global_position = loc - start_loc + Vector2(1,1)
 	
 	var root_node = get_tree().get_root().get_node("Main") 
 

@@ -54,6 +54,7 @@ scale = Vector2(0.64, 0.64)
 texture = ExtResource("1_yd22f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(180, -32)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ss0v3")
@@ -61,6 +62,7 @@ sprite_frames = SubResource("SpriteFrames_ss0v3")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_m6gic")
 

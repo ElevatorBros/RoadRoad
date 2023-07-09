@@ -22,7 +22,8 @@ signal update_camera_target(loc: Vector2)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_camera_target.connect($Camera2D.on_update_camera_target)
-	current_marker_loc = $SpawnArea/SpawnShape.position + Vector2(-100, -50)
+	#current_marker_loc = $SpawnArea/SpawnShape.position + Vector2(-100, -50)
+	current_marker_loc = $SpawnArea/SpawnShape.global_position + Vector2(0,-6)
 	car = car_scene.instantiate()
 	
 	place_road(straight_road, true)
@@ -34,6 +35,10 @@ func _ready():
 	road_mapping.append(slight_down_road)
 	road_mapping.append(very_up_road)
 	road_mapping.append(very_down_road)
+	
+	place_road(straight_road, false)
+	place_road(straight_road, false)
+	place_road(straight_road, false)
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=24 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
 [ext_resource type="PackedScene" uid="uid://bvky2b3uqo3vf" path="res://scenes/roads/straight_road.tscn" id="2_0xk6j"]
@@ -18,6 +18,13 @@
 [ext_resource type="Script" path="res://scenes/Spawn.gd" id="12_uuqad"]
 [ext_resource type="FontFile" uid="uid://bwnh8yci3map1" path="res://assets/Fonts/Digitalt-nGZM.otf" id="13_10aim"]
 [ext_resource type="Script" path="res://Game Over.gd" id="14_5wdqt"]
+[ext_resource type="FontFile" uid="uid://bnxyb0o5n73oi" path="res://assets/Fonts/GladlyAcceptRegular-Wyjov.ttf" id="16_801q8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahmnf"]
+line_spacing = 50.0
+font = ExtResource("16_801q8")
+font_size = 200
+font_color = Color(0.764706, 0.435294, 0.352941, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hxjxf"]
 font = ExtResource("13_10aim")
@@ -42,6 +49,18 @@ car_scene = ExtResource("2_w4gjd")
 script = ExtResource("7_byxam")
 grid_cell = ExtResource("8_g4d7y")
 
+[node name="Title" type="Label" parent="."]
+z_index = 10
+z_as_relative = false
+offset_left = -134.0
+offset_top = -150.0
+offset_right = 1018.0
+offset_bottom = 81.0
+scale = Vector2(0.232106, 0.334476)
+text = "Road Road"
+label_settings = SubResource("LabelSettings_ahmnf")
+horizontal_alignment = 1
+
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = -1
 z_as_relative = false
@@ -54,9 +73,9 @@ card_scene = ExtResource("8_vsguc")
 [node name="Label" type="Label" parent="Camera2D"]
 z_index = 10
 z_as_relative = false
-offset_left = -99.0
+offset_left = -95.0
 offset_top = -460.0
-offset_right = 99.0
+offset_right = 103.0
 offset_bottom = -320.0
 text = "0.00"
 label_settings = SubResource("LabelSettings_hxjxf")
@@ -65,10 +84,10 @@ script = ExtResource("12_sqb8y")
 [node name="Game Over" type="Label" parent="Camera2D"]
 z_index = 10
 z_as_relative = false
-offset_left = -270.0
-offset_top = -308.0
-offset_right = 275.0
-offset_bottom = -168.0
+offset_left = -237.0
+offset_top = -310.0
+offset_right = 308.0
+offset_bottom = -170.0
 text = "Game Over"
 label_settings = SubResource("LabelSettings_hxjxf")
 script = ExtResource("14_5wdqt")
@@ -85,6 +104,7 @@ autostart = true
 position = Vector2(0, -42)
 
 [node name="SpawnShape" type="CollisionShape2D" parent="SpawnArea"]
+visible = false
 shape = SubResource("RectangleShape2D_ul8l8")
 script = ExtResource("12_uuqad")
 car_amount = 20
@@ -97,11 +117,24 @@ position = Vector2(-1, 318)
 position = Vector2(-116, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackWall"]
+visible = false
 position = Vector2(-4, 1)
 shape = SubResource("RectangleShape2D_bjytq")
 
 [node name="PlaceRoad" type="Timer" parent="."]
 wait_time = 1.7
+
+[node name="StraightRoad" parent="." instance=ExtResource("2_0xk6j")]
+position = Vector2(-144, -48)
+script = null
+
+[node name="StraightRoad2" parent="." instance=ExtResource("2_0xk6j")]
+position = Vector2(-432, -48)
+script = null
+
+[node name="StraightRoad3" parent="." instance=ExtResource("2_0xk6j")]
+position = Vector2(-720, -48)
+script = null
 
 [connection signal="timeout" from="TerrainManager/Timer" to="TerrainManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="PlaceRoad" to="." method="_on_place_road_timeout"]
