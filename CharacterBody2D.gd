@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-var speed = 50
+var speed = 150
 var initial_velocity = Vector2(speed, 0)
 var min_velocity = Vector2(-1 * speed, -1 * speed)
 var max_velocity = Vector2(speed, speed)
 
 func _ready():
 	randomize()
+	position += Vector2(0, -30)
+	scale  = Vector2(0.4, 0.4)
 	set_velocity(initial_velocity)
 	
 func _process(delta):
@@ -39,22 +41,22 @@ func _physics_process(delta):
 	#var mouse = get_global_mouse_position()
 	#var mouse = get_tree().get_root().get_node("Main").get_child("Camera").position
 	
-	var bias = 100 * delta
+	#var bias = 100 * delta
 	#var pos_diff = (mouse - global_position).normalized()
 	# add a bit of random
 	var pos_diff = Vector2(10 + (0.5-(randi() % 100)/100),(0.5-(randi() % 100)/100))
 
 	#velocity += pos_diff * bias
-	velocity = velocity.clamp(min_velocity, max_velocity)
+	#velocity = velocity.clamp(min_velocity, max_velocity)
 	
 	
 	var space_state = get_world_2d().direct_space_state
 	
 	
 	var left_ray = PhysicsRayQueryParameters2D.create(
-		global_position, global_position + Vector2(0, -25))
+		global_position, global_position + Vector2(0, -55))
 	var right_ray = PhysicsRayQueryParameters2D.create(
-		global_position, global_position + Vector2(0, 25))
+		global_position, global_position + Vector2(0, 55))
 	
 	var front_ray = PhysicsRayQueryParameters2D.create(
 		global_position, global_position + Vector2(30, 0))
@@ -69,17 +71,17 @@ func _physics_process(delta):
 	
 	if result_left:
 		print("Left: ", result_left.position)
-		velocity += Vector2(20, 2)
+		velocity += Vector2(1, 2)
 	if result_right:
 		print("Right: ", result_right.position)
-		velocity += Vector2(20, -2)
-
+		velocity += Vector2(1, -2)
+	
 	if result_front:
 		print("Front: ", result_front.position)
-		velocity += Vector2(-2, 2)
+		velocity += Vector2(-2, 1)
 	if result_back:
 		print("Back: ", result_back.position)
-		velocity += Vector2(2, 2)
+		velocity += Vector2(2, 1)
 	
 	queue_redraw()
 
