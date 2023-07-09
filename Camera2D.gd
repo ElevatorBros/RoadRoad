@@ -30,9 +30,13 @@ func _ready():
 	zoom_start = 12
 	zoom_goal = 2
 	zoom_percent = 0
-	start_wait = 1
+	start_wait = 0.25
 
 	self.set_zoom(Vector2(zoom_start,zoom_start))
+	
+	if not GameStarter.played_title:
+		GameStarter.played_title = true
+		Music.play_title()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,6 +59,9 @@ func _process(delta):
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
 			self.get_parent().find_child("Title").visible = false
+			
+			Music.fade_out_title()
+			
 			zoom_out = true
 			if Car.current_mode == 0:
 				Car.goal = Car.race_distances[Car.current_var]
@@ -80,6 +87,7 @@ func _process(delta):
 			if zoom_percent > 1.0:
 				zoom_out = false
 				GameStarter.start_game = true
+				Music.play_main()
 				
 		self.global_position = Car.global_position
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm6tem2spelt3"]
+
+[ext_resource type="AudioStream" uid="uid://ujwxh733x7yh" path="res://assets/music/Main_Theme_Draft.mp3" id="1_b6owy"]
+[ext_resource type="Script" path="res://Music.gd" id="1_x0w38"]
+[ext_resource type="AudioStream" uid="uid://o4y84ghjanms" path="res://assets/music/Driving_Theme_Full.mp3" id="2_817kd"]
+
+[node name="Music" type="Node2D"]
+script = ExtResource("1_x0w38")
+
+[node name="TitleSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_b6owy")
+volume_db = -6.206
+
+[node name="MainSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_817kd")
+volume_db = -6.277

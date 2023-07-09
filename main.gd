@@ -53,6 +53,10 @@ func _process(delta):
 			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(2)], false)
 		if Input.is_action_just_pressed("four"):
 			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(3)], false)
+		if Input.is_action_just_pressed("r"):
+			GameStarter.start_game = false
+			Car.has_died = false 
+			get_tree().reload_current_scene()
 	else:
 		if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("d"):
 			if Car.current_var == 2:

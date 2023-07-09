@@ -70,6 +70,7 @@ func _ready():
 	goal = 0
 
 	won = false
+	Car.won = false
 
 	is_timed = false
 	time_to_win = 0
@@ -188,6 +189,7 @@ func _on_area_2d_area_entered(area):
 		else:
 			if has_gold:
 				remove_gold()
+				area.get_parent().free()
 			else:
 				death()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=30 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
 [ext_resource type="PackedScene" uid="uid://bvky2b3uqo3vf" path="res://scenes/roads/straight_road.tscn" id="2_0xk6j"]
@@ -33,6 +33,9 @@ font_color = Color(0.764706, 0.435294, 0.352941, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_y0x1c"]
 font = ExtResource("13_10aim")
 font_size = 180
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xwwx"]
+font_size = 200
 
 [sub_resource type="LabelSettings" id="LabelSettings_hxjxf"]
 font = ExtResource("13_10aim")
@@ -96,6 +99,15 @@ text = "1000M
 label_settings = SubResource("LabelSettings_y0x1c")
 horizontal_alignment = 1
 script = ExtResource("13_3pjqn")
+
+[node name="Credits" type="Label" parent="."]
+offset_left = 179.0
+offset_top = -32.0
+offset_right = 7887.0
+offset_bottom = 244.0
+scale = Vector2(0.0727627, 0.0528682)
+text = "Joshua Bourgeot - Ronan Maharaj - Orestes Kassian - Chris Allen - Mattew Jodhan"
+label_settings = SubResource("LabelSettings_8xwwx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = -1
