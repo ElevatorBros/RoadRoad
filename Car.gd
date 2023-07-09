@@ -14,9 +14,7 @@ var speeding_down_start = false
 var speed_up_percent = 1
 
 var spinning = false
-
 var spin_deck = false
-
 var has_gold = false
 
 var current_car_type = "Small"
@@ -29,22 +27,16 @@ var mode_strings = ["Race", "Timed", "Endless"]
 var var_strings_Race = ["100M", "500M", "1000M"]
 var var_strings_Timed = ["30sec", "60sec", "120sec"]
 var var_strings_Endless = ["Normal", "Fast", "Zen"]
-
 var race_distances = [30, 60, 100]
-
 var race_times = [30, 60, 120]
 
 var goal = 0
-
 var won = false
 
 var is_timed = false
 var time_to_win = 0
-
 var is_zen = false
-
 var custom_pos = Vector2(0,0)
-
 var faster = false
 
 # Called when the node enters the scene tree for the first time.
@@ -87,7 +79,7 @@ func get_speed() -> int:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
-	if $Area2DCar != null:
+	if self.find_child("Small") != null:
 		Car.custom_pos = self.find_child("Area2DCar").global_position
 		
 	if GameStarter.start_game:
@@ -116,7 +108,7 @@ func _process(delta):
 				
 		Car.speed = normal_speed * slow_down_percent * speed_up_percent
 		
-	elif $Small != null:
+	elif self.find_child("Small") != null:
 		if Car.current_mode == 0:
 			current_car_type = "Small"
 			current_car_var = Car.current_var

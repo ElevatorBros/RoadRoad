@@ -60,7 +60,8 @@ func _process(delta):
 		
 	else:
 		if Input.is_action_just_pressed("ui_accept"):
-			self.get_parent().find_child("Title").visible = false
+			self.get_parent().find_child("Title").hide()
+			self.get_parent().find_child("PressStart").hide()
 			
 			Music.fade_out_title()
 			

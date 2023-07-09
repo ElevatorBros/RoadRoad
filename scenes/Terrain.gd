@@ -52,6 +52,6 @@ func hide_terrain():
 
 
 func _on_terrain_area_entered(area):
-#	if area.get_name() == "Terrain":
-#		area.get_parent().free()
-	pass
+	if area.get_name() == "Terrain":
+		area.get_parent().free()
+

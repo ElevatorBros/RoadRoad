@@ -5,7 +5,6 @@ extends Node2D
 @export var slight_down_road: PackedScene
 @export var very_up_road: PackedScene
 @export var very_down_road: PackedScene
-
 @export var car_scene: PackedScene
 
 var road_mapping = []
@@ -67,7 +66,6 @@ func _process(delta):
 					Car.current_mode = 2
 				else:
 					Car.current_mode = 0
-				
 				Car.current_var = 0
 			else:
 				Car.current_var += 1

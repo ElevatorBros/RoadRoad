@@ -14,7 +14,7 @@ var card_types = 5
 func _ready():
 	current_cards = []
 
-	card_start_loc = Vector2(-750, 300)
+	card_start_loc = Vector2(-750, -400)
 
 	card_space = Vector2(500, 0)
 
@@ -43,6 +43,7 @@ func add_card():
 	
 func update_card_target_positions():
 	for i in range(len(current_cards)):
+		current_cards[i].find_child("Label").set_text(str(i + 1))
 		current_cards[i].on_set_current_target(self.position + card_start_loc + (i * card_space))
 
 func use_card(index: int) -> int:

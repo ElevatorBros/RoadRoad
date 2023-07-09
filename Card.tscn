@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2th31hoqsxrg"]
+[gd_scene load_steps=10 format=3 uid="uid://d2th31hoqsxrg"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_ryrq3"]
 [ext_resource type="Texture2D" uid="uid://c3e4xhjlue4x" path="res://assets/icon1.png" id="2_m8dq2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jawq03cc3iua" path="res://assets/icon2.png" id="4_4ksjn"]
 [ext_resource type="Texture2D" uid="uid://uqqxffw8e1vr" path="res://assets/icon3.png" id="5_0wtfo"]
 [ext_resource type="Texture2D" uid="uid://bh62lyfungsfd" path="res://assets/icon4.png" id="6_6yco4"]
+[ext_resource type="FontFile" uid="uid://bnxyb0o5n73oi" path="res://assets/Fonts/GladlyAcceptRegular-Wyjov.ttf" id="7_i8xq4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_of1va"]
 animations = [{
@@ -30,6 +31,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_pe6pf"]
+font = ExtResource("7_i8xq4")
+font_size = 800
+
 [node name="Card" type="Node2D"]
 z_index = 3
 z_as_relative = false
@@ -49,3 +54,12 @@ z_index = 6
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_of1va")
 frame = 4
+
+[node name="Label" type="Label" parent="."]
+offset_left = -14.5
+offset_top = -85.0
+offset_right = 546.5
+offset_bottom = 637.0
+scale = Vector2(0.0510142, 0.0510142)
+text = "0"
+label_settings = SubResource("LabelSettings_pe6pf")
