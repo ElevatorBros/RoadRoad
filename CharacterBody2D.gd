@@ -13,10 +13,18 @@ func _process(delta):
 	var camera = get_tree().root.get_child(0).get_child(0)
 	if self.global_position.distance_to(camera.global_position) > 10000:
 		#self.free()
+		pass
 
 var hit = Vector2(0, 0)
+
 func _draw():
-	draw_line(global_position, global_position + Vector2(100,0), Color(1, 0, 0))
+	
+	#this is not accurate position, only shows scale
+	
+	draw_line(global_position, global_position + Vector2(0, -25), Color(1, 0, 0))
+	draw_line(global_position, global_position + Vector2(0, 25), Color(1, 0, 0))
+	draw_line(global_position, global_position + Vector2(30,0), Color(1, 0, 0))
+	draw_line(global_position, global_position + Vector2(-30,0), Color(1, 0, 0))
 	
 func _physics_process(delta):
 	find_child("Sprite2D").rotation = velocity.angle()
@@ -36,7 +44,7 @@ func _physics_process(delta):
 	# add a bit of random
 	var pos_diff = Vector2(10 + (0.5-(randi() % 100)/100),(0.5-(randi() % 100)/100))
 
-	velocity += pos_diff * bias
+	#velocity += pos_diff * bias
 	velocity = velocity.clamp(min_velocity, max_velocity)
 	
 	
@@ -44,28 +52,34 @@ func _physics_process(delta):
 	
 	
 	var left_ray = PhysicsRayQueryParameters2D.create(
-		global_position, global_position + Vector2(0, -20))
-	
+		global_position, global_position + Vector2(0, -25))
 	var right_ray = PhysicsRayQueryParameters2D.create(
-		global_position, global_position + Vector2(0, 20))
+		global_position, global_position + Vector2(0, 25))
 	
 	var front_ray = PhysicsRayQueryParameters2D.create(
-		global_position, global_position + Vector2(20, 0))
+		global_position, global_position + Vector2(30, 0))
+	var back_ray = PhysicsRayQueryParameters2D.create(
+		global_position, global_position + Vector2(-30, 0))
 		
 	var result_left = space_state.intersect_ray(left_ray)
 	var result_right = space_state.intersect_ray(right_ray)
+	
 	var result_front = space_state.intersect_ray(front_ray)
+	var result_back = space_state.intersect_ray(back_ray)
 	
 	if result_left:
-		#print("Left: ", result_left.position)
-		pass
-		
+		print("Left: ", result_left.position)
+		velocity += Vector2(20, 2)
 	if result_right:
-		#print("Right: ", result_right.position)
-		velocity += Vector2(0, -20)
-	
+		print("Right: ", result_right.position)
+		velocity += Vector2(20, -2)
+
 	if result_front:
-		velocity += Vector2(-20, 0)
+		print("Front: ", result_front.position)
+		velocity += Vector2(-2, 2)
+	if result_back:
+		print("Back: ", result_back.position)
+		velocity += Vector2(2, 2)
 	
 	queue_redraw()
 
