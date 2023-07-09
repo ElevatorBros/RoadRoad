@@ -11,6 +11,7 @@ func _ready():
 	percent_there = 0
 	speed = 1
 	self.position = Vector2(10000,10000)
+	self.scale = Vector2(1.5,1.5)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

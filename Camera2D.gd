@@ -45,20 +45,7 @@ func _ready():
 func _process(delta):
 	if start_wait > 0:
 		start_wait -= delta
-	elif GameStarter.start_game:
-		#if Input.is_action_just_released("zoom_in"):
-		#	self.zoom -= Vector2(0.1, 0.1)
-		#if Input.is_action_just_released("zoom_out"):
-		#	self.zoom += Vector2(0.1, 0.1)
-			
-		#if percent_there < 1:
-		#	percent_there += delta * speed
-		#self.position = lerp(self.position, current_target, percent_there)
-		
-		#custom_pos = self.position
-		pass
-		
-	else:
+	elif not GameStarter.start_game:
 		if Input.is_action_just_pressed("ui_accept"):
 			self.get_parent().find_child("Title").hide()
 			self.get_parent().find_child("PressStart").hide()

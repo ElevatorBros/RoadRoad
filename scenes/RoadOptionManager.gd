@@ -13,11 +13,8 @@ var card_types = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_cards = []
-
-	card_start_loc = Vector2(-750, -400)
-
-	card_space = Vector2(500, 0)
-
+	card_start_loc = Vector2(-460, -260)
+	card_space = Vector2(300, 0)
 	card_types = 5
 
 	randomize()

@@ -41,7 +41,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if GameStarter.start_game and not Car.has_died:
 		update_camera_target.emit(car.find_child("Area2DCar").global_position)
 		if Input.is_action_just_pressed("one"):
