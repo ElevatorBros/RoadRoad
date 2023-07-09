@@ -2,22 +2,22 @@ extends Node2D
 
 @onready var grid = load("res://scenes/grid/Grid.tres")
 @export var grid_cell: PackedScene
-var offset = Vector2(-20,-20)
+var offset = Vector2(-20,-50)
 var size = 96
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	generate_grid(Vector2(100,100))
-	offset = Vector2(80,-20)
-	generate_grid(Vector2(100,100))
+	generate_grid(Vector2(50,100))
+	offset = Vector2(30,-50)
+	generate_grid(Vector2(20,100))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var camera = get_parent().find_child("Camera2D")
-	if (camera.custom_pos / size).distance_to(offset+Vector2(100,0)) < 100:
-		offset += Vector2(100,0)
-		generate_grid(Vector2(100,100))
+	if (camera.custom_pos / size).distance_to(offset+Vector2(20,0)) < 100:
+		offset += Vector2(20,0)
+		generate_grid(Vector2(20,100))
 
 
 func generate_grid(dimensions: Vector2):

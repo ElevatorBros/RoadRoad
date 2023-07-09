@@ -1,5 +1,10 @@
 extends Node2D
 
+var type = 0
+
+func get_type() -> int:
+	return type
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,11 +19,6 @@ func _process(delta):
 	if self.global_position.distance_to(camera.global_position) > 10000:
 		#self.free()
 		pass
-
-
-func _on_area_2d_body_entered(body):
-	#body.free()
-	pass # Replace with function body.
 
 func on_update_terrain_postion(loc: Vector2):
 	self.global_position = loc

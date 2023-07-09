@@ -36,6 +36,7 @@ func _process(delta):
 				has_car = false
 			else:
 				#print("end of road")
+				car_inst.death()
 				pass
 				
 		

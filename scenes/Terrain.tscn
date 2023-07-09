@@ -14,10 +14,8 @@ position = Vector2(48, 48)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_3scwr")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Terrain" type="Area2D" parent="."]
 position = Vector2(48, 48)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
 shape = SubResource("RectangleShape2D_4rad4")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
