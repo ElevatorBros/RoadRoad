@@ -33,6 +33,7 @@ slight_up_road = ExtResource("3_y0mto")
 slight_down_road = ExtResource("4_4invc")
 very_up_road = ExtResource("5_3dbkq")
 very_down_road = ExtResource("6_n5gvb")
+car_scene = ExtResource("2_w4gjd")
 
 [node name="GridGenerator" type="Node2D" parent="."]
 script = ExtResource("7_byxam")
@@ -87,9 +88,6 @@ shape = SubResource("RectangleShape2D_bjytq")
 
 [node name="PlaceRoad" type="Timer" parent="."]
 wait_time = 1.7
-
-[node name="Car" parent="." instance=ExtResource("2_w4gjd")]
-position = Vector2(-49, -35)
 
 [connection signal="timeout" from="TerrainManager/Timer" to="TerrainManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="PlaceRoad" to="." method="_on_place_road_timeout"]

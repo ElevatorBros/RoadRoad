@@ -15,9 +15,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var camera = get_parent().find_child("Camera2D")
-	print("pos:", camera.custom_pos)
-	print("offset:", offset)
-	print("scaled:", camera.custom_pos / size )
 	if (camera.custom_pos / size).distance_to(offset+Vector2(100,0)) < 100:
 		offset += Vector2(100,0)
 		generate_grid(Vector2(100,100))

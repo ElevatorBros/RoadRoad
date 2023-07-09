@@ -43,3 +43,7 @@ shape = SubResource("RectangleShape2D_mru87")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_lb3xq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-144, 48)
+rotation = -0.321751
