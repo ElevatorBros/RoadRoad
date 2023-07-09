@@ -9,6 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not Car.has_died:
-		time += delta
-		self.text = str(time).pad_decimals(2)
+	if GameStarter.start_game:
+		if not Car.has_died:
+			time += delta
+			self.text = str(time).pad_decimals(2)

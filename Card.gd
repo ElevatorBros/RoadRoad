@@ -12,12 +12,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if percent_there < 1:
-		percent_there += delta * speed
-	# TODO: Ask josh about a better way to do this. 
-	#self.position = lerp(self.position, current_target, percent_there / 2)
-	#self.position.y += 100
-	self.position = lerp(self.position, current_target, percent_there)
+	if GameStarter.start_game:
+		if percent_there < 1:
+			percent_there += delta * speed
+		# TODO: Ask josh about a better way to do this. 
+		#self.position = lerp(self.position, current_target, percent_there / 2)
+		#self.position.y += 100
+		self.position = lerp(self.position, current_target, percent_there)
 
 func on_set_current_target(loc: Vector2):
 	percent_there = 0

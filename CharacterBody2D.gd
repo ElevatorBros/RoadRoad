@@ -12,10 +12,11 @@ func _ready():
 	set_velocity(initial_velocity)
 	
 func _process(delta):
-	var camera = get_tree().root.get_child(0).get_child(0)
-	if self.global_position.distance_to(camera.global_position) > 10000:
-		#self.free()
-		pass
+	if GameStarter.start_game:
+		var camera = get_tree().root.get_child(0).get_child(0)
+		if self.global_position.distance_to(camera.global_position) > 10000:
+			#self.free()
+			pass
 
 var hit = Vector2(0, 0)
 

@@ -23,8 +23,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if launching:
-		self.position += Vector2(5000 * delta,0)
+	if GameStarter.start_game:
+		if launching:
+			self.position += Vector2(5000 * delta,0)
 
 func on_update_terrain_postion(loc: Vector2):
 	self.global_position = loc
