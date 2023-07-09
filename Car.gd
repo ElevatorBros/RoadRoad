@@ -14,7 +14,8 @@ func get_speed() -> int:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimatedSprite2D.visible = false
+	#$AnimatedSprite2D.visible = false
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +36,7 @@ func _process(delta):
 func death():
 	if not has_died:
 		has_died = true
+		Car.has_died = true
 		$Sprite2D.visible = false
 		$AnimatedSprite2D.visible = true
 		$AnimatedSprite2D.play()
@@ -46,6 +48,9 @@ func _on_animated_sprite_2d_animation_finished():
 func slow_down():
 	start_slow_down = true
 	$SlowDown.start()
+	
+func speed_up():
+	pass
 
 func _on_area_2d_area_entered(area):
 	if area.get_name() == "Terrain":
@@ -53,6 +58,8 @@ func _on_area_2d_area_entered(area):
 		if type == 0: # cone
 			slow_down()
 			area.get_parent().launch()
+		elif type == 2: # speed
+			speed_up()
 		else:
 			death()
 

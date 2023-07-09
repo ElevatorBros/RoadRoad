@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=22 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
 [ext_resource type="PackedScene" uid="uid://bvky2b3uqo3vf" path="res://scenes/roads/straight_road.tscn" id="2_0xk6j"]
@@ -16,8 +16,11 @@
 [ext_resource type="Script" path="res://scenes/RoadOptionManager.gd" id="10_1xbbe"]
 [ext_resource type="Script" path="res://Label.gd" id="12_sqb8y"]
 [ext_resource type="Script" path="res://scenes/Spawn.gd" id="12_uuqad"]
+[ext_resource type="FontFile" uid="uid://bwnh8yci3map1" path="res://assets/Fonts/Digitalt-nGZM.otf" id="13_10aim"]
+[ext_resource type="Script" path="res://Game Over.gd" id="14_5wdqt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hxjxf"]
+font = ExtResource("13_10aim")
 font_size = 100
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul8l8"]
@@ -58,6 +61,17 @@ offset_bottom = -320.0
 text = "0.00"
 label_settings = SubResource("LabelSettings_hxjxf")
 script = ExtResource("12_sqb8y")
+
+[node name="Game Over" type="Label" parent="Camera2D"]
+z_index = 10
+z_as_relative = false
+offset_left = -270.0
+offset_top = -308.0
+offset_right = 275.0
+offset_bottom = -168.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_hxjxf")
+script = ExtResource("14_5wdqt")
 
 [node name="TerrainManager" type="Node2D" parent="."]
 script = ExtResource("7_odv5m")

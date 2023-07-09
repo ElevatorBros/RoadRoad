@@ -1,13 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://0hkprff666bu"]
+[gd_scene load_steps=7 format=3 uid="uid://0hkprff666bu"]
 
 [ext_resource type="Script" path="res://scenes/Terrain.gd" id="1_oqk5q"]
+[ext_resource type="Texture2D" uid="uid://deowwuuspe30u" path="res://icon.svg" id="2_3scwr"]
 [ext_resource type="Texture2D" uid="uid://1po87flhmnb8" path="res://assets/Hazard_Cone.png" id="2_u2y8n"]
+[ext_resource type="Texture2D" uid="uid://b0ptsb3nyfsiv" path="res://assets/Hazard_C4.png" id="3_q6obb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_svatk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_u2y8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q6obb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3scwr")
 }],
 "loop": true,
 "name": &"default",
