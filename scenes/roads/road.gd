@@ -28,7 +28,7 @@ func _process(delta):
 	
 	if GameStarter.start_game:
 		if has_car and not Car.has_died:
-			if $Path2D/PathFollow2D.progress_ratio >= 0.95:
+			if $Path2D/PathFollow2D.progress_ratio >= 0.97:
 				if has_next_road:
 					$Path2D/PathFollow2D.remove_child(car_inst)
 					send_car_to_road.connect(next_road_inst.on_send_car_to_road)
@@ -42,8 +42,14 @@ func _process(delta):
 					
 			
 			else:	
-				var speed = car_inst.get_speed()
+				var speed = car_inst.get_speed() 
+				if Car.faster:
+					speed += 200
+
 				$Path2D/PathFollow2D.progress += speed * delta
+	
+	if Car.custom_pos.distance_to(self.global_position) > 10000:
+		self.queue_free()
 			
 
 

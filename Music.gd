@@ -37,8 +37,8 @@ func play_main():
 func mute_toggle():
 	if mute:
 		mute = false
-		$MainSong.volume_db = -6.0
-		$TitleSong.volume_db = -6.0
+		$MainSong.volume_db = -10.0
+		$TitleSong.volume_db = -10.0
 	else:
 		mute = true
 		$MainSong.volume_db = -100

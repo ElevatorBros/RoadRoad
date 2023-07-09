@@ -17,6 +17,8 @@ var zoom_percent = 0
 
 var start_wait = 1
 
+signal self_delete()
+
 
 func _ready():
 	current_target = Vector2(0,0)
@@ -69,13 +71,15 @@ func _process(delta):
 				for i in range(50):
 					var end_line = goal_scene.instantiate()
 					end_line.global_position = Vector2(96 * Car.goal, (-50 * 96) + 96 * i * 2)
+					self_delete.connect(end_line.on_self_delete)
 					get_tree().root.get_child(0).add_child(end_line)
 			elif Car.current_mode == 1:
 				Car.time_to_win = Car.race_times[Car.current_var]
 				Car.is_timed = true
 			else:
 				if Car.current_var == 1:
-					Car.speed = 300
+					Car.speed = 500
+					Car.faster = true
 				elif Car.current_var == 2:
 					Car.is_zen = true
 					Car.speed = 150
@@ -93,3 +97,6 @@ func _process(delta):
 
 func on_update_camera_target(loc: Vector2):
 	self.global_position = loc
+
+func del_finish_line():
+	self_delete.emit()

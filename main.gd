@@ -56,6 +56,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("r"):
 			GameStarter.start_game = false
 			Car.has_died = false 
+			$Camera2D.del_finish_line()
 			get_tree().reload_current_scene()
 	else:
 		if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("d"):
@@ -121,4 +122,5 @@ func _unhandled_key_input(event):
 		if event.is_pressed():
 			GameStarter.start_game = false
 			Car.has_died = false
+			$Camera2D.del_finish_line()
 			get_tree().reload_current_scene()

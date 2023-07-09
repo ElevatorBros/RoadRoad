@@ -43,12 +43,15 @@ var time_to_win = 0
 
 var is_zen = false
 
+var custom_pos = Vector2(0,0)
+
+var faster = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	has_died = false
 
 	normal_speed = 200
-	speed = normal_speed
 
 	start_slow_down = false
 	start_speeding_up = false
@@ -76,12 +79,17 @@ func _ready():
 	time_to_win = 0
 
 	is_zen = false
+	
+	Car.faster = false
 
 func get_speed() -> int:
-	return speed
+	return Car.speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):	
+	if $Area2DCar != null:
+		Car.custom_pos = self.find_child("Area2DCar").global_position
+		
 	if GameStarter.start_game:
 		if spinning and not Car.has_died:
 			self.rotate(15 * delta)
@@ -106,7 +114,7 @@ func _process(delta):
 			else:
 				speeding_down_start = false
 				
-		speed = normal_speed * slow_down_percent * speed_up_percent
+		Car.speed = normal_speed * slow_down_percent * speed_up_percent
 		
 	elif $Small != null:
 		if Car.current_mode == 0:
@@ -189,9 +197,9 @@ func _on_area_2d_area_entered(area):
 		else:
 			if has_gold:
 				remove_gold()
-				area.get_parent().free()
 			else:
 				death()
+			area.get_parent().free()
 
 
 func _on_slow_down_timeout():
