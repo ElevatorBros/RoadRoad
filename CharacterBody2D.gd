@@ -7,15 +7,15 @@ var max_velocity = Vector2(speed, speed)
 
 func _ready():
 	randomize()
-	position += Vector2(500, -30)
+	position += Vector2(0, -30)
 	scale  = Vector2(0.4, 0.4)
 	set_velocity(initial_velocity)
 	
 func _process(delta):
-	if GameStarter.start_game:
-		var camera = get_tree().root.get_child(0).get_child(0)
-		if self.global_position.distance_to(camera.global_position) > 10000:
-			pass
+	var camera = get_tree().root.get_child(0).get_child(0)
+	if self.global_position.distance_to(camera.global_position) > 10000:
+		#self.free()
+		pass
 
 var hit = Vector2(0, 0)
 

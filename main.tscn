@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cajorajlhspss"]
+[gd_scene load_steps=22 format=3 uid="uid://cajorajlhspss"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w4xsq"]
 [ext_resource type="PackedScene" uid="uid://bvky2b3uqo3vf" path="res://scenes/roads/straight_road.tscn" id="2_0xk6j"]
@@ -45,8 +45,6 @@ grid_cell = ExtResource("8_g4d7y")
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = -1
 z_as_relative = false
-offset = Vector2(-200, 0)
-zoom = Vector2(3, 3)
 script = ExtResource("5_0euvl")
 
 [node name="RoadOptionManager" type="Node2D" parent="Camera2D"]
@@ -104,9 +102,6 @@ shape = SubResource("RectangleShape2D_bjytq")
 
 [node name="PlaceRoad" type="Timer" parent="."]
 wait_time = 1.7
-
-[node name="GameStarter" type="Node" parent="."]
-script = ExtResource("17_cd8k5")
 
 [connection signal="timeout" from="TerrainManager/Timer" to="TerrainManager" method="_on_timer_timeout"]
 [connection signal="timeout" from="PlaceRoad" to="." method="_on_place_road_timeout"]
