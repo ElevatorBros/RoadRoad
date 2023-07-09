@@ -36,7 +36,8 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	var i = int(self.get_parent().find_child("Camera2D").global_position.x / grid_size)
-	var j = int(self.get_parent().find_child("Camera2D").global_position.y / grid_size)
-	spawn_corner = Vector2(i, j) + spawn_corner_offset
-	spawn_block()
+	if GameStarter.start_game:
+		var i = int(self.get_parent().find_child("Camera2D").global_position.x / grid_size)
+		var j = int(self.get_parent().find_child("Camera2D").global_position.y / grid_size)
+		spawn_corner = Vector2(i, j) + spawn_corner_offset
+		spawn_block()

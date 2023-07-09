@@ -24,24 +24,25 @@ func _process(delta):
 		#self.free()
 	#	pass
 	
-	if has_car:
-		if $Path2D/PathFollow2D.progress_ratio >= 0.95:
-			if has_next_road:
-				$Path2D/PathFollow2D.remove_child(car_inst)
-				send_car_to_road.connect(next_road_inst.on_send_car_to_road)
-				send_car_to_road.emit(car_inst)
-				send_car_to_road.disconnect(next_road_inst.on_send_car_to_road)
-				has_car = false
-			else:
-				#print("end of road")
-				car_inst.death()
-				pass
-				
-		
-		else:	
-			var speed = car_inst.get_speed()
-			$Path2D/PathFollow2D.progress += speed * delta
-		
+	if GameStarter.start_game:
+		if has_car:
+			if $Path2D/PathFollow2D.progress_ratio >= 0.95:
+				if has_next_road:
+					$Path2D/PathFollow2D.remove_child(car_inst)
+					send_car_to_road.connect(next_road_inst.on_send_car_to_road)
+					send_car_to_road.emit(car_inst)
+					send_car_to_road.disconnect(next_road_inst.on_send_car_to_road)
+					has_car = false
+				else:
+					#print("end of road")
+					car_inst.death()
+					pass
+					
+			
+			else:	
+				var speed = car_inst.get_speed()
+				$Path2D/PathFollow2D.progress += speed * delta
+			
 
 
 func on_send_point_to_road(loc: Vector2):

@@ -39,14 +39,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("one"):
-		place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(0)], false)
-	if Input.is_action_just_pressed("two"):
-		place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(1)], false)
-	if Input.is_action_just_pressed("three"):
-		place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(2)], false)
-	if Input.is_action_just_pressed("four"):
-		place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(3)], false)
+	if GameStarter.start_game:
+		if Input.is_action_just_pressed("one"):
+			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(0)], false)
+		if Input.is_action_just_pressed("two"):
+			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(1)], false)
+		if Input.is_action_just_pressed("three"):
+			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(2)], false)
+		if Input.is_action_just_pressed("four"):
+			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(3)], false)
 
 func place_road(road: PackedScene, first_time: bool):
 	var road_instance = road.instantiate()

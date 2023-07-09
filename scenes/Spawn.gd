@@ -28,6 +28,7 @@ func spawn_cars():
 		cars_spawned = true
 
 func _process(delta):
-	if len(cars) == 0 and cars_spawned:
-		print("All cars gone")
-		get_tree().quit()
+	if GameStarter.start_game:
+		if len(cars) == 0 and cars_spawned:
+			print("All cars gone")
+			get_tree().quit()

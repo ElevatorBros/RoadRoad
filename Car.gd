@@ -20,18 +20,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if start_slow_down:
-		if slow_down_percent > 0.5:
-			slow_down_percent -= 0.5 * delta
-		else:
-			start_slow_down = false
-	elif start_speeding_up:
-		if slow_down_percent < 1:
-			slow_down_percent += 0.5 * delta
-		else:
-			start_speeding_up = false
-			
-	speed = normal_speed * slow_down_percent
+	if GameStarter.start_game:
+		if start_slow_down:
+			if slow_down_percent > 0.5:
+				slow_down_percent -= 0.5 * delta
+			else:
+				start_slow_down = false
+		elif start_speeding_up:
+			if slow_down_percent < 1:
+				slow_down_percent += 0.5 * delta
+			else:
+				start_speeding_up = false
+				
+		speed = normal_speed * slow_down_percent
 
 func death():
 	if not has_died:
