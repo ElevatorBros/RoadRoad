@@ -8,8 +8,6 @@ var car_inst
 var has_next_road = false
 var next_road_inst
 
-var speed = 300
-
 signal send_car_to_road(car)
 
 # Called when the node enters the scene tree for the first time.
@@ -41,6 +39,7 @@ func _process(delta):
 				
 		
 		else:	
+			var speed = car_inst.get_speed()
 			$Path2D/PathFollow2D.progress += speed * delta
 		
 

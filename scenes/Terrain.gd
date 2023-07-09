@@ -2,6 +2,8 @@ extends Node2D
 
 var type = 0
 
+var launching = false
+
 func get_type() -> int:
 	return type
 
@@ -19,6 +21,12 @@ func _process(delta):
 	if self.global_position.distance_to(camera.global_position) > 10000:
 		#self.free()
 		pass
+		
+	if launching:
+		self.position += Vector2(5000 * delta,0)
 
 func on_update_terrain_postion(loc: Vector2):
 	self.global_position = loc
+
+func launch():
+	launching = true

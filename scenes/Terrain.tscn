@@ -1,7 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://0hkprff666bu"]
+[gd_scene load_steps=5 format=3 uid="uid://0hkprff666bu"]
 
 [ext_resource type="Script" path="res://scenes/Terrain.gd" id="1_oqk5q"]
-[ext_resource type="Texture2D" uid="uid://deowwuuspe30u" path="res://icon.svg" id="2_3scwr"]
+[ext_resource type="Texture2D" uid="uid://1po87flhmnb8" path="res://assets/Hazard_Cone.png" id="2_u2y8n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svatk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u2y8n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rad4"]
 size = Vector2(96, 96)
@@ -9,13 +20,15 @@ size = Vector2(96, 96)
 [node name="Terrain" type="Node2D"]
 script = ExtResource("1_oqk5q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(48, 48)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_3scwr")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 49)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_svatk")
 
 [node name="Terrain" type="Area2D" parent="."]
 position = Vector2(48, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
+position = Vector2(0, 1)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_4rad4")

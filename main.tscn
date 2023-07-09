@@ -64,7 +64,7 @@ script = ExtResource("7_odv5m")
 terrain_scene = ExtResource("8_fqp3v")
 
 [node name="Timer" type="Timer" parent="TerrainManager"]
-wait_time = 0.2
+wait_time = 0.4
 autostart = true
 
 [node name="SpawnArea" type="Area2D" parent="."]
