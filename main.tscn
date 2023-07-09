@@ -68,7 +68,7 @@ offset_top = -150.0
 offset_right = 1018.0
 offset_bottom = 81.0
 scale = Vector2(0.232106, 0.334476)
-text = "Road Road"
+text = "Road-Road"
 label_settings = SubResource("LabelSettings_ahmnf")
 horizontal_alignment = 1
 
