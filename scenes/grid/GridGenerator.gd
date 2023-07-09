@@ -7,6 +7,7 @@ var size = 96
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	offset = Vector2(-20,-50)
 	generate_grid(Vector2(50,100))
 	offset = Vector2(30,-50)
 	generate_grid(Vector2(20,100))

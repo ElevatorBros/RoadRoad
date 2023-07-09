@@ -12,6 +12,8 @@ signal send_car_to_road(car)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	has_car = false
+	has_next_road = false
 	pass # Replace with function body.
 
 
@@ -35,8 +37,8 @@ func _process(delta):
 					has_car = false
 				else:
 					#print("end of road")
-					car_inst.death()
-					pass
+					if not Car.is_zen:
+						car_inst.death()
 					
 			
 			else:	
@@ -60,9 +62,7 @@ func on_send_point_to_road(loc: Vector2):
 func on_send_car_to_road(car):
 	car_inst = car
 	has_car = true
-	print("before:", car_inst.get_parent())
 	$Path2D/PathFollow2D.add_child(car_inst)
-	print("after:", car_inst.get_parent())
 	$Path2D/PathFollow2D.progress = 0
 
 func on_send_next_road_to_road(road):

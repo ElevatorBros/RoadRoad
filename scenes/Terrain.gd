@@ -10,8 +10,12 @@ func get_type() -> int:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	type = 0
+
+	launching = false
+	
 	randomize()
-	if randi() % 3 == 0: # Bomb
+	if randi() % 5 == 0: # Bomb
 		type = 1
 	elif randi() % 10 == 0: # Wrench
 		type = 4
@@ -30,6 +34,9 @@ func _process(delta):
 	if GameStarter.start_game:
 		if launching:
 			self.position += Vector2(5000 * delta,0)
+			
+	if Car.is_zen:
+		self.free()
 
 func on_update_terrain_postion(loc: Vector2):
 	self.global_position = loc
@@ -43,4 +50,4 @@ func hide_terrain():
 
 func _on_terrain_area_entered(area):
 	if area.get_name() == "Terrain":
-		area.free()
+		area.get_parent().free()

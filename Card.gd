@@ -7,6 +7,9 @@ var current_type = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	current_target = Vector2(0,0)
+	percent_there = 0
+	speed = 1
 	self.position = Vector2(10000,10000)
 
 

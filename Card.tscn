@@ -45,6 +45,7 @@ offset_bottom = 361.0
 color = Color(0.984314, 0, 0.337255, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 6
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_of1va")
 frame = 4

@@ -21,6 +21,7 @@ signal update_camera_target(loc: Vector2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	current_marker_loc = Vector2(0,500)
 	update_camera_target.connect($Camera2D.on_update_camera_target)
 	#current_marker_loc = $SpawnArea/SpawnShape.position + Vector2(-100, -50)
 	current_marker_loc = $SpawnArea/SpawnShape.global_position + Vector2(0,-6)
@@ -38,14 +39,12 @@ func _ready():
 	
 	place_road(straight_road, false)
 	place_road(straight_road, false)
-	place_road(straight_road, false)
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if GameStarter.start_game and not Car.has_died:
-		update_camera_target.emit(car.find_child("Area2D").global_position)
+		update_camera_target.emit(car.find_child("Area2DCar").global_position)
 		if Input.is_action_just_pressed("one"):
 			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(0)], false)
 		if Input.is_action_just_pressed("two"):
@@ -54,7 +53,32 @@ func _process(delta):
 			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(2)], false)
 		if Input.is_action_just_pressed("four"):
 			place_road(road_mapping[$Camera2D/RoadOptionManager.use_card(3)], false)
-
+	else:
+		if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("d"):
+			if Car.current_var == 2:
+				if Car.current_mode == 0:
+					Car.current_mode = 1
+				elif Car.current_mode == 1:
+					Car.current_mode = 2
+				else:
+					Car.current_mode = 0
+				
+				Car.current_var = 0
+			else:
+				Car.current_var += 1
+		if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("a"):
+			if Car.current_var == 0:
+				if Car.current_mode == 0:
+					Car.current_mode = 2
+				elif Car.current_mode == 1:
+					Car.current_mode = 0
+				else:
+					Car.current_mode = 1
+				
+				Car.current_var = 2
+			else:
+				Car.current_var -= 1
+		
 func place_road(road: PackedScene, first_time: bool):
 	var road_instance = road.instantiate()
 	add_child(road_instance)
@@ -87,3 +111,10 @@ func on_send_point_to_main(loc: Vector2):
 
 func _on_place_road_timeout():
 	place_road(straight_road, false)
+
+func _unhandled_key_input(event):
+	if GameStarter.start_game and Car.has_died:
+		if event.is_pressed():
+			GameStarter.start_game = false
+			Car.has_died = false
+			get_tree().reload_current_scene()

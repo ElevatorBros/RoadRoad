@@ -15,6 +15,12 @@ signal update_terrain_position(loc: Vector2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	grid_size = 96
+	spawn_corner = Vector2(10,0)
+	spawn_corner_offset = Vector2(6,-10)
+	spawn_size = Vector2(10,40)
+	fudge = Vector2(0,0)
+
 	randomize()
 	for i in range(30):
 		spawn_block()

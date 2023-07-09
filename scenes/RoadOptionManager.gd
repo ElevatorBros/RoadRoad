@@ -12,6 +12,14 @@ var card_types = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	current_cards = []
+
+	card_start_loc = Vector2(-750, 300)
+
+	card_space = Vector2(500, 0)
+
+	card_types = 5
+
 	randomize()
 	add_card()
 	add_card()
@@ -42,13 +50,14 @@ func use_card(index: int) -> int:
 	#remove_card(index)
 	#add_card()
 	current_cards[index].free()
+	current_cards.remove_at(index)
 	var card = card_scene.instantiate()
 	card.set_card_type(randi() % card_types)
 	add_child(card)
 	move_child(card, 1)
-	current_cards[index] = card
+	#current_cards[index] = card
+	current_cards.insert(index, card)
 	update_card_target_positions()
-	
 	return type
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

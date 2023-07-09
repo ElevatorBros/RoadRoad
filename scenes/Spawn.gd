@@ -8,6 +8,10 @@ var cars = []
 
 var cars_spawned = false
 
+func _read():
+	cars = []
+	cars_spawned = false
+
 func spawn_cars():
 	if spawn:
 		var spawn_area = self.shape.extents

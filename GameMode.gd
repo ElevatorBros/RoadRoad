@@ -3,12 +3,9 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.visible = false
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Car.has_died:
-		if Car.won:
-			self.text = "You Win!"
-		self.visible = true
+	self.text = Car.mode_strings[Car.current_mode]

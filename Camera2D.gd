@@ -1,5 +1,7 @@
 extends Camera2D
 
+@export var goal_scene: PackedScene
+
 var current_target = Vector2(0,0)
 
 var speed = 5
@@ -13,19 +15,31 @@ var zoom_start = 12
 var zoom_goal = 2
 var zoom_percent = 0
 
+var start_wait = 1
+
 
 func _ready():
-	if OS.is_debug_build():
-		# TODO: Discuss with Josh and Orestes to see if this is cool
-		#self.set_zoom(Vector2(0.5,0.5))
-		#self.set_zoom(Vector2(2,2))
-		self.set_zoom(Vector2(zoom_start,zoom_start))
-		#self.global_position += Vector2(0,-75)
-	pass
+	current_target = Vector2(0,0)
+	speed = 5
+
+	percent_there = 0
+
+	custom_pos = Vector2(0,0)
+
+	zoom_out = false
+	zoom_start = 12
+	zoom_goal = 2
+	zoom_percent = 0
+	start_wait = 1
+
+	self.set_zoom(Vector2(zoom_start,zoom_start))
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if GameStarter.start_game:
+	if start_wait > 0:
+		start_wait -= delta
+	elif GameStarter.start_game:
 		#if Input.is_action_just_released("zoom_in"):
 		#	self.zoom -= Vector2(0.1, 0.1)
 		#if Input.is_action_just_released("zoom_out"):
@@ -39,9 +53,25 @@ func _process(delta):
 		pass
 		
 	else:
-		if Input.is_action_just_released("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept"):
 			self.get_parent().find_child("Title").visible = false
 			zoom_out = true
+			if Car.current_mode == 0:
+				Car.goal = Car.race_distances[Car.current_var]
+				
+				for i in range(50):
+					var end_line = goal_scene.instantiate()
+					end_line.global_position = Vector2(96 * Car.goal, (-50 * 96) + 96 * i * 2)
+					get_tree().root.get_child(0).add_child(end_line)
+			elif Car.current_mode == 1:
+				Car.time_to_win = Car.race_times[Car.current_var]
+				Car.is_timed = true
+			else:
+				if Car.current_var == 1:
+					Car.speed = 300
+				elif Car.current_var == 2:
+					Car.is_zen = true
+					Car.speed = 150
 		
 		if zoom_out:
 			var zoom = lerp(zoom_start, zoom_goal, zoom_percent)
