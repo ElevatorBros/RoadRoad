@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvky2b3uqo3vf"]
+[gd_scene load_steps=4 format=3 uid="uid://bvky2b3uqo3vf"]
 
 [ext_resource type="Script" path="res://scenes/roads/road.gd" id="1_b0feg"]
 [ext_resource type="Texture2D" uid="uid://u3uy36j62al2" path="res://assets/straight_road.png" id="2_m16ja"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mru87"]
-size = Vector2(288, 16)
 
 [sub_resource type="Curve2D" id="Curve2D_q5xs8"]
 _data = {
@@ -12,7 +9,7 @@ _data = {
 }
 point_count = 2
 
-[node name="StraightRoad" type="Node2D"]
+[node name="StraightRoad2" type="Node2D"]
 script = ExtResource("1_b0feg")
 
 [node name="Beginning" type="Marker2D" parent="."]
@@ -24,18 +21,6 @@ position = Vector2(144, 0)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("2_m16ja")
-
-[node name="Top" type="StaticBody2D" parent="."]
-position = Vector2(0, -40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
-shape = SubResource("RectangleShape2D_mru87")
-
-[node name="Bottom" type="StaticBody2D" parent="."]
-position = Vector2(0, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
-shape = SubResource("RectangleShape2D_mru87")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_q5xs8")

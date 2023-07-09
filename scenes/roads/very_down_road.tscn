@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnblufu1hqoal"]
+[gd_scene load_steps=4 format=3 uid="uid://bnblufu1hqoal"]
 
 [ext_resource type="Script" path="res://scenes/roads/road.gd" id="1_qkicw"]
 [ext_resource type="Texture2D" uid="uid://dgvdplit2i8c8" path="res://assets/road_very.png" id="2_e1mcu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mru87"]
-size = Vector2(96, 16)
 
 [sub_resource type="Curve2D" id="Curve2D_jtrtc"]
 _data = {
@@ -12,7 +9,7 @@ _data = {
 }
 point_count = 11
 
-[node name="StraightRoad" type="Node2D"]
+[node name="StraightRoad2" type="Node2D"]
 script = ExtResource("1_qkicw")
 
 [node name="Beginning" type="Marker2D" parent="."]
@@ -25,30 +22,6 @@ position = Vector2(96, 96)
 rotation = 1.5708
 scale = Vector2(1, -1)
 texture = ExtResource("2_e1mcu")
-
-[node name="Top" type="StaticBody2D" parent="."]
-position = Vector2(0, -136)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
-position = Vector2(-48, 0)
-shape = SubResource("RectangleShape2D_mru87")
-
-[node name="Bottom" type="StaticBody2D" parent="."]
-position = Vector2(0, 136)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
-position = Vector2(47, -1)
-shape = SubResource("RectangleShape2D_mru87")
-
-[node name="T" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="T"]
-visible = false
-polygon = PackedVector2Array(-95, -50, -4, -36, 14, 124, 73, 142, 95, 143, 95, 129, 45, 127, 31, 116, 28, 57, 28, -8, 21, -30, 15, -42, 15, -42, 2, -52, -17, -58, -94, -63)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="T"]
-visible = false
-polygon = PackedVector2Array(1, -142, 69, -124, 93, -64, 95, 48, 95, 60, 84, 61, 82, -18, 77, -76, 62, -103, 45, -117, 14, -127, 0, -128)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jtrtc")
