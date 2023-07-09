@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Card.gd" id="1_ryrq3"]
 [ext_resource type="Texture2D" uid="uid://c3e4xhjlue4x" path="res://assets/icon1.png" id="2_m8dq2"]
-[ext_resource type="Texture2D" uid="uid://bwwo6mnsita5t" path="res://assets/icon5.png" id="3_dv7ep"]
-[ext_resource type="Texture2D" uid="uid://de41uelplx403" path="res://assets/icon2.png" id="4_4ksjn"]
+[ext_resource type="Texture2D" uid="uid://bsw1yu6emtq53" path="res://assets/icon5.png" id="3_dv7ep"]
+[ext_resource type="Texture2D" uid="uid://jawq03cc3iua" path="res://assets/icon2.png" id="4_4ksjn"]
 [ext_resource type="Texture2D" uid="uid://uqqxffw8e1vr" path="res://assets/icon3.png" id="5_0wtfo"]
 [ext_resource type="Texture2D" uid="uid://bh62lyfungsfd" path="res://assets/icon4.png" id="6_6yco4"]
 

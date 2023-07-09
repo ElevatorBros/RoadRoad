@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jawq03cc3iua"
-path="res://.godot/imported/icon2.png-2b6439a0200a65cfd84819fc8d4704be.ctex"
+uid="uid://3vbvuacv60f4"
+path="res://.godot/imported/Hazard_Banana.png-66747e00df931aa966e9b5ccac97fbbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon2.png"
-dest_files=["res://.godot/imported/icon2.png-2b6439a0200a65cfd84819fc8d4704be.ctex"]
+source_file="res://assets/Hazard_Banana.png"
+dest_files=["res://.godot/imported/Hazard_Banana.png-66747e00df931aa966e9b5ccac97fbbc.ctex"]
 
 [params]
 

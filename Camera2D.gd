@@ -20,7 +20,7 @@ func _ready():
 		#self.set_zoom(Vector2(0.5,0.5))
 		#self.set_zoom(Vector2(2,2))
 		self.set_zoom(Vector2(zoom_start,zoom_start))
-		self.global_position += Vector2(0,-75)
+		#self.global_position += Vector2(0,-75)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,12 +31,12 @@ func _process(delta):
 		#if Input.is_action_just_released("zoom_out"):
 		#	self.zoom += Vector2(0.1, 0.1)
 			
-		if percent_there < 1:
-			percent_there += delta * speed
-		self.position = lerp(self.position, current_target, percent_there)
+		#if percent_there < 1:
+		#	percent_there += delta * speed
+		#self.position = lerp(self.position, current_target, percent_there)
 		
-		custom_pos = self.position
-		
+		#custom_pos = self.position
+		pass
 		
 	else:
 		if Input.is_action_just_released("ui_accept"):
@@ -50,8 +50,8 @@ func _process(delta):
 			if zoom_percent > 1.0:
 				zoom_out = false
 				GameStarter.start_game = true
-		
+				
+		self.global_position = Car.global_position
 
 func on_update_camera_target(loc: Vector2):
-	#current_target = loc
-	#percent_there = 0
+	self.global_position = loc

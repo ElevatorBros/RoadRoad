@@ -39,12 +39,28 @@ func update_card_target_positions():
 
 func use_card(index: int) -> int:
 	var type = get_type(index)
-	remove_card(index)
-	add_card()
+	#remove_card(index)
+	#add_card()
+	current_cards[index].free()
+	var card = card_scene.instantiate()
+	card.set_card_type(randi() % card_types)
+	add_child(card)
+	move_child(card, 1)
+	current_cards[index] = card
 	update_card_target_positions()
 	
 	return type
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Car.spin_deck:
+		remove_card(0)
+		remove_card(0)
+		remove_card(0)
+		remove_card(0)
+		add_card()
+		add_card()
+		add_card()
+		add_card()
+		update_card_target_positions()
+		Car.spin_deck = false

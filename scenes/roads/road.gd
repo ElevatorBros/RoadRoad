@@ -25,7 +25,7 @@ func _process(delta):
 	#	pass
 	
 	if GameStarter.start_game:
-		if has_car:
+		if has_car and not Car.has_died:
 			if $Path2D/PathFollow2D.progress_ratio >= 0.95:
 				if has_next_road:
 					$Path2D/PathFollow2D.remove_child(car_inst)
@@ -48,7 +48,7 @@ func _process(delta):
 func on_send_point_to_road(loc: Vector2):
 	#var start_loc = $Beginning.position
 	var start_loc = $Beginning.global_position
-	self.position = loc - start_loc + Vector2(0,0)
+	self.position = loc - start_loc
 	#self.global_position = loc - start_loc + Vector2(1,1)
 	
 	var root_node = get_tree().get_root().get_node("Main") 

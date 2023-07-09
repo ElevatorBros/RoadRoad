@@ -1,14 +1,85 @@
-[gd_scene load_steps=12 format=3 uid="uid://b300jhat3hll0"]
+[gd_scene load_steps=26 format=3 uid="uid://b300jhat3hll0"]
 
 [ext_resource type="Script" path="res://Car.gd" id="1_gfyi6"]
-[ext_resource type="Texture2D" uid="uid://by7do2868ttxe" path="res://assets/Green_Car.png" id="1_yd22f"]
 [ext_resource type="Texture2D" uid="uid://ut2a7gxcr3ai" path="res://assets/Smoke_Animation1.png" id="2_3fsp6"]
+[ext_resource type="Texture2D" uid="uid://bosmxm6nporuc" path="res://assets/Cars/Small_1.png" id="2_ur0jt"]
+[ext_resource type="Texture2D" uid="uid://cfdnearld56le" path="res://assets/Cars/Small_2.png" id="3_dejsi"]
 [ext_resource type="Texture2D" uid="uid://bhb41dqxu2pyl" path="res://assets/Smoke_Animation2.png" id="3_hx42c"]
 [ext_resource type="Texture2D" uid="uid://cbvkwfnjaxijk" path="res://assets/Smoke_Animation3.png" id="4_3nb8g"]
+[ext_resource type="Texture2D" uid="uid://v6ubjg1tviwy" path="res://assets/Cars/Small_3.png" id="4_l7uf4"]
+[ext_resource type="Texture2D" uid="uid://7f8aqfc80858" path="res://assets/Cars/Small_Gold.png" id="5_0sdey"]
 [ext_resource type="Texture2D" uid="uid://cmby1jsrauthm" path="res://assets/Smoke_Animation4.png" id="5_myl2i"]
 [ext_resource type="Texture2D" uid="uid://dq34l6hnt8mox" path="res://assets/Smoke_Animation5.png" id="6_blrd2"]
+[ext_resource type="Texture2D" uid="uid://dgbe2m4776xm4" path="res://assets/Cars/Medium_1.png" id="6_xyjf5"]
 [ext_resource type="Texture2D" uid="uid://h4v2rlxjxx0k" path="res://assets/Smoke_Animation6.png" id="7_bjds0"]
+[ext_resource type="Texture2D" uid="uid://bhsoittasqajm" path="res://assets/Cars/Medium_2.png" id="7_g7b3q"]
 [ext_resource type="Texture2D" uid="uid://bir4ddm51magn" path="res://assets/Smoke_Animation7.png" id="8_ngyar"]
+[ext_resource type="Texture2D" uid="uid://bevu0wrpgjjdj" path="res://assets/Cars/Medium_3.png" id="8_remqm"]
+[ext_resource type="Texture2D" uid="uid://wrdy72o8jw30" path="res://assets/Cars/Medium_Gold.png" id="9_vd5g2"]
+[ext_resource type="Texture2D" uid="uid://bhwkimdqbi2nm" path="res://assets/Cars/Large_1.png" id="10_7odga"]
+[ext_resource type="Texture2D" uid="uid://b6n0f1qlgklxv" path="res://assets/Cars/Large_2.png" id="11_eral7"]
+[ext_resource type="Texture2D" uid="uid://sogcyta5yykj" path="res://assets/Cars/Large_3.png" id="12_y1aug"]
+[ext_resource type="Texture2D" uid="uid://cw7iwl0p5mgki" path="res://assets/Cars/Large_Gold.png" id="13_hg66v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spwtn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ur0jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dejsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l7uf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0sdey")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2tug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_xyjf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g7b3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_remqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vd5g2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ip605"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7odga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_eral7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y1aug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hg66v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ss0v3"]
 animations = [{
@@ -40,7 +111,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6gic"]
-size = Vector2(84, 50)
+size = Vector2(88, 50)
 
 [node name="Car" type="Node2D"]
 z_index = 2
@@ -48,12 +119,24 @@ z_as_relative = false
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_gfyi6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Small" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.64, 0.64)
-texture = ExtResource("1_yd22f")
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_spwtn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Medium" type="AnimatedSprite2D" parent="."]
+visible = false
+rotation = 1.5708
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_x2tug")
+
+[node name="Large" type="AnimatedSprite2D" parent="."]
+visible = false
+rotation = 1.5708
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_ip605")
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(180, -32)
 scale = Vector2(5, 5)
@@ -62,14 +145,18 @@ sprite_frames = SubResource("SpriteFrames_ss0v3")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(-2, -1)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_m6gic")
 
 [node name="SlowDown" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[node name="Spin" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="animation_finished" from="Explosion" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="SlowDown" to="." method="_on_slow_down_timeout"]
+[connection signal="timeout" from="Spin" to="." method="_on_spin_timeout"]

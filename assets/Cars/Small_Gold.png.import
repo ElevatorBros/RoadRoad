@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jawq03cc3iua"
-path="res://.godot/imported/icon2.png-2b6439a0200a65cfd84819fc8d4704be.ctex"
+uid="uid://7f8aqfc80858"
+path="res://.godot/imported/Small_Gold.png-4cd22cd77a022c03ce6c99790ff9dfd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon2.png"
-dest_files=["res://.godot/imported/icon2.png-2b6439a0200a65cfd84819fc8d4704be.ctex"]
+source_file="res://assets/Cars/Small_Gold.png"
+dest_files=["res://.godot/imported/Small_Gold.png-4cd22cd77a022c03ce6c99790ff9dfd2.ctex"]
 
 [params]
 
