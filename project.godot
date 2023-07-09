@@ -21,10 +21,6 @@ Car="*res://Car.gd"
 GameStarter="*res://game_starter.gd"
 Music="*res://Music.tscn"
 
-[display]
-
-window/size/mode=2
-
 [input]
 
 zoom_in={

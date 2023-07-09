@@ -37,9 +37,9 @@ func _process(delta):
 			
 	if Car.is_zen:
 		self.free()
-	
-	if Car.custom_pos.distance_to(self.global_position) > 10000:
-		self.queue_free()
+	else:		
+		if Car.custom_pos.distance_to(self.global_position) > 10000:
+			self.queue_free()
 
 func on_update_terrain_postion(loc: Vector2):
 	self.global_position = loc
